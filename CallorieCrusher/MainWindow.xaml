@@ -8,6 +8,5 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Label Content="Here will be calculator"></Label>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="-156,305,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
