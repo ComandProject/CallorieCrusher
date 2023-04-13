@@ -5,9 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CallorieCrusher"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Register" Height="400" Width="300"
+         Background="#D9F0C7" Closed="Close">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="15"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <Label Content="Here will be calculator"></Label>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="-156,305,0,0" VerticalAlignment="Top"/>
+        <StackPanel>
+            <Label Content="Callorie Crusher" FontFamily="Bodoni MT" FontSize="42" HorizontalAlignment="Center"></Label>
+            <Label Content="Login" FontFamily="Bodoni MT" FontSize="28" HorizontalAlignment="Center" Margin="0,20,0,0"></Label>
+            <TextBox Name="login" FontFamily="Bodoni MT" FontSize="28" Margin="20,0,20,0"></TextBox>
+            <Label Content="Password" FontFamily="Bodoni MT" FontSize="28" HorizontalAlignment="Center"></Label>
+            <PasswordBox Name="pass" FontFamily="Bodoni MT" FontSize="28" Margin="20,0,20,0"></PasswordBox>
+            <Button Name="log" Background="#F2D968" Content="Log In" FontFamily="Bodoni MT" FontSize="28" Margin="20,20,20,0" MouseEnter="Levitate" MouseLeave="Leave" Click="Logging"></Button>
+            <Button Name="sing" Background="#F2D968" Content="Sign in" FontFamily="Bodoni MT" FontSize="28" Margin="20,20,20,0" MouseEnter="Levitate" MouseLeave="Leave"></Button>
+        </StackPanel>
     </Grid>
 </Window>
+

@@ -1,0 +1,58 @@
+﻿<Window x:Class="CallorieCrusher.SingIn"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cake_House"
+        mc:Ignorable="d"
+        Title="SingIn" Height="360" Width="470"
+         Background="#D9F0C7" Closed="Close">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="15"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="22*"/>
+            <ColumnDefinition Width="213*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="2">
+
+            <Label Content="CallorieCrusher" FontFamily="Bodoni MT" FontSize="42" HorizontalAlignment="Center"></Label>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Login:" FontFamily="Bodoni MT" FontSize="28" HorizontalAlignment="Center" Margin="0,0,78,0"></Label>
+                <TextBox Width="280" Height="35" Name="login" FontFamily="Bodoni MT" FontSize="28" Margin="20,0,20,0"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Password:" FontFamily="Bodoni MT" FontSize="28" HorizontalAlignment="Center" Margin="0,0,55,0"></Label>
+                <PasswordBox Name="pass"  Width="280" FontFamily="Bodoni MT" FontSize="28" Height="35"></PasswordBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Weight:" FontFamily="Bodoni MT" FontSize="28" HorizontalAlignment="Center" Margin="0,0,60,0"></Label>
+                <TextBox Width="280" Height="35" Name="weight" FontFamily="Bodoni MT" FontSize="28" Margin="20,0,20,0"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Goal:" FontFamily="Bodoni MT" FontSize="28" HorizontalAlignment="Center" Margin="0,0,80,0"></Label>
+                <RadioButton Name="grow" Content="Grow" FontFamily="Bodoni MT" FontSize="28"></RadioButton>
+                <RadioButton Name="lose" Content="Lose" FontFamily="Bodoni MT" FontSize="28"></RadioButton>
+                <RadioButton Name="stay" Content="Stay" FontFamily="Bodoni MT" FontSize="28"></RadioButton>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Desired weight:" Foreground="Gray" FontFamily="Bodoni MT" FontSize="24" HorizontalAlignment="Center"></Label>
+                <TextBox IsEnabled="False" Width="280" Height="35" Name="desiredweight" FontFamily="Bodoni MT" FontSize="28" Margin="20,0,20,0"></TextBox>
+            </StackPanel>
+            <Button Name="sing" Background="#F2D968" Content="Sign in" FontFamily="Bodoni MT" FontSize="28" Margin="20,20,20,0" MouseEnter="Levitate" MouseLeave="Leave"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
+
