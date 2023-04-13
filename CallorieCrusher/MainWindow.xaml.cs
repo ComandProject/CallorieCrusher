@@ -23,6 +23,9 @@ namespace CallorieCrusher
         public MainWindow()
         {
             InitializeComponent();
+            cal.SelectedDate= DateTime.Now;
+            cal.DisplayDateEnd= DateTime.Now;
         }
+
     }
 }
