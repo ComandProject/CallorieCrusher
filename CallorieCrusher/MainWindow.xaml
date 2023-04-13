@@ -7,9 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="Here will be calculator"></Label>
-
-            <Calendar x:Name="cal" Margin="325,94,295,180"/>
+  
 
     </Grid>
 </Window>
