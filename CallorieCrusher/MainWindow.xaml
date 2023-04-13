@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CallorieCrusher"
         mc:Ignorable="d"
         Title="Register" Height="400" Width="300"
-         Background="#D9F0C7" Closed="Close">
+         Background="#D9F0C7">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Template">
@@ -28,8 +28,8 @@
             <TextBox Name="login" FontFamily="Bodoni MT" FontSize="28" Margin="20,0,20,0"></TextBox>
             <Label Content="Password" FontFamily="Bodoni MT" FontSize="28" HorizontalAlignment="Center"></Label>
             <PasswordBox Name="pass" FontFamily="Bodoni MT" FontSize="28" Margin="20,0,20,0"></PasswordBox>
-            <Button Name="log" Background="#F2D968" Content="Log In" FontFamily="Bodoni MT" FontSize="28" Margin="20,20,20,0" MouseEnter="Levitate" MouseLeave="Leave" Click="Logging"></Button>
-            <Button Name="sing" Background="#F2D968" Content="Sign in" FontFamily="Bodoni MT" FontSize="28" Margin="20,20,20,0" MouseEnter="Levitate" MouseLeave="Leave"></Button>
+            <Button Name="log" Background="#F2D968" Content="Log In" FontFamily="Bodoni MT" FontSize="28" Margin="20,20,20,0"></Button>
+            <Button Name="sing" Background="#F2D968" Content="Sign in" FontFamily="Bodoni MT" FontSize="28" Margin="20,20,20,0"  ></Button>
         </StackPanel>
     </Grid>
 </Window>

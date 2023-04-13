@@ -23,6 +23,8 @@ namespace CallorieCrusher
         public MainWindow()
         {
             InitializeComponent();
+            Callorie_Crusher_Main ccm = new Callorie_Crusher_Main();
+            ccm.Show();
         }
     }
 }

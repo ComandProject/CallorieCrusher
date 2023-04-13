@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CallorieCrusher"
         mc:Ignorable="d"
         Title="SingIn" Height="360" Width="470"
-         Background="#D9F0C7" Closed="Close">
+         Background="#D9F0C7">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Template">
@@ -51,7 +51,7 @@
                 <Label Content="Desired weight:" Foreground="Gray" FontFamily="Bodoni MT" FontSize="24" HorizontalAlignment="Center"></Label>
                 <TextBox IsEnabled="False" Width="280" Height="35" Name="desiredweight" FontFamily="Bodoni MT" FontSize="28" Margin="20,0,20,0"></TextBox>
             </StackPanel>
-            <Button Name="sing" Background="#F2D968" Content="Sign in" FontFamily="Bodoni MT" FontSize="28" Margin="20,20,20,0" MouseEnter="Levitate" MouseLeave="Leave"></Button>
+            <Button Name="sing" Background="#F2D968" Content="Sign in" FontFamily="Bodoni MT" FontSize="28" Margin="20,20,20,0"  ></Button>
         </StackPanel>
     </Grid>
 </Window>
