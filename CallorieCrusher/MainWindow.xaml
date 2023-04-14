@@ -4,8 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CallorieCrusher"
+         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Register" Height="400" Width="300"
+        Title="Register" Height="350" Width="300"
          Background="#D9F0C7">
     <Window.Resources>
         <Style TargetType="Button">
@@ -23,12 +25,15 @@
     </Window.Resources>
     <Grid>
         <StackPanel>
-            <Label Content="Callorie Crusher" FontFamily="Bodoni MT" FontSize="42" HorizontalAlignment="Center"></Label>
-            <Label Content="Login" FontFamily="Bodoni MT" FontSize="28" HorizontalAlignment="Center" Margin="0,20,0,0"></Label>
-            <TextBox Name="login" FontFamily="Bodoni MT" FontSize="28" Margin="20,0,20,0"></TextBox>
-            <Label Content="Password" FontFamily="Bodoni MT" FontSize="28" HorizontalAlignment="Center"></Label>
-            <PasswordBox Name="pass" FontFamily="Bodoni MT" FontSize="28" Margin="20,0,20,0"></PasswordBox>
-            <Button Name="log" Background="#F2D968" Content="Log In" FontFamily="Bodoni MT" FontSize="28" Margin="20,20,20,0"></Button>
+            <Label Content="Callorie Crusher" FontFamily="Bodoni MT" FontSize="36" HorizontalAlignment="Center"></Label>
+            <TextBox Name="login" FontFamily="Bodoni MT" FontSize="28" Margin="20,10,20,0" Background="#7FFFFFFF"  materialDesign:HintAssist.Hint="Enter Login" Style="{StaticResource ResourceKey=MaterialDesignTextBox}" BorderThickness="0,0,0,1" mah:ControlsHelper.FocusBorderThickness="0,0,10,0" CaretBrush="{DynamicResource MaterialDesignBackground}">
+                <TextBox.Resources>
+                    <SolidColorBrush x:Key="MaterialDesignTextBoxCaretBrush" Color="Yellow" />
+                </TextBox.Resources>
+            </TextBox>
+            
+            <PasswordBox  Name="pass" FontFamily="Bodoni MT" FontSize="28" Margin="20,20,20,0" Background="#7FFFFFFF"  materialDesign:HintAssist.Hint="Enter Password" BorderThickness="0,0,0,1" mah:ControlsHelper.FocusBorderThickness="0,0,10,0"/>
+            <Button Name="log" Background="#F2D968" Content="Log In" FontFamily="Bodoni MT" FontSize="28" Margin="20,40,20,0"></Button>
             <Button Name="sing" Background="#F2D968" Content="Sign in" FontFamily="Bodoni MT" FontSize="28" Margin="20,20,20,0"  ></Button>
         </StackPanel>
     </Grid>
