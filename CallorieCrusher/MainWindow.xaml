@@ -6,8 +6,57 @@
         xmlns:local="clr-namespace:CallorieCrusher"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280">
-    <Grid>
-  
 
+    <Grid>
+        <StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Top" Background="Green">
+            <Button x:Name="Main" Content="Main"  Width="110" Height="30" Margin="20,0,0,0" Background="White" Click="Main_Click"/>
+            <Button x:Name="Eat" Content="Food" Width="110" Height="30" Margin="20,0,0,0" Background="White" Click="Eat_Click"/>
+            <Button x:Name="Calend" Content="Calendar" Width="110" Height="30" Margin="20,0,0,0" Background="White" Click="Calend_Click"/>
+            <Button x:Name="Stat" Content="Stats" Width="110" Height="30" Margin="20,0,0,0" Background="White" Click="Stat_Click"/>
+            <Label x:Name="Time"  Margin="580,0,0,0" FontSize="12"  Width="150" Foreground="White" Padding="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel x:Name="Page1" Background="#D9F0C7" Height="654" VerticalAlignment="Top" Margin="0,50,0,0" Orientation="Horizontal" Visibility="Visible">
+            <StackPanel Orientation="Horizontal" Width="600" Height="532"  Margin="13,0,0,0">
+                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="16,0,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="1"/>
+                <Label Width="130" Height="300" VerticalAlignment="Bottom" Margin="-132,0,0,1" Background="red"/>
+                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="16,0,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="1"/>
+                <Label Width="130" Height="529" VerticalAlignment="Bottom" Margin="-132,0,0,1" Background="Yellow"/>
+                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="16,0,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="1"/>
+                <Label Width="130" Height="500" VerticalAlignment="Bottom" Margin="-132,0,0,1" Background="Green"/>
+                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="16,0,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="1"/>
+                <Label Width="130" Height="200" VerticalAlignment="Bottom" Margin="-132,0,0,1" Background="Orange"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Width="620" Height="530" Margin="13,0,0,0">
+                <Label Content="Meats today:" FontSize="18" Background="White"/>
+                <TextBox Height="496" FontSize="18" BorderBrush="White" Margin="0,-1,0,0"/>
+            </StackPanel>
+            <Label Content="Proteins" Width="100" Height="30" Margin="-2310,560,0,0" Padding="0,0,0,0" FontSize="16"/>
+            <Label Content="Fats" Width="100" Height="30" Margin="-1970,560,0,0" Padding="0,0,0,0" FontSize="16"/>
+            <Label Content="Carbs" Width="100" Height="30" Margin="-1680,560,0,0" Padding="0,0,0,0" FontSize="16"/>
+            <Label Content="Water" Width="100" Height="30" Margin="-1380,560,0,0" Padding="0,0,0,0" FontSize="16"/>
+            <Label Content="n %" Width="100" Height="30" Margin="-2310,0,0,0" Padding="34,0,0,0" FontSize="20"/>
+            <Label Content="n %" Width="100" Height="30" Margin="-2010,0,0,0" Padding="34,0,0,0" FontSize="20"/>
+            <Label Content="n %" Width="100" Height="30" Margin="-1710,0,0,0" Padding="34,0,0,0" FontSize="20"/>
+            <Label Content="n %" Width="100" Height="30" Margin="-1410,0,0,0" Padding="34,0,0,0" FontSize="20"/>
+            <Button Width="100" Height="30" Margin="-100,570,0,0" Background="#FF750000" BorderBrush="red" Content="EXIT" Foreground="WHITE"/>
+        </StackPanel>
+
+
+
+        <StackPanel x:Name="Page2" Background="#D9F0C7" Height="654" VerticalAlignment="Top" Margin="0,50,0,0" Orientation="Horizontal" Visibility="Hidden">
+           
+        </StackPanel>
+        
+        
+        
+        <StackPanel x:Name="Page3" Background="#D9F0C7" Height="654" VerticalAlignment="Top" Margin="0,50,0,0" Orientation="Horizontal" Visibility="Hidden">
+
+        </StackPanel>
+        
+        
+        
+        <StackPanel x:Name="Page4" Background="#D9F0C7" Height="654" VerticalAlignment="Top" Margin="0,50,0,0" Orientation="Horizontal" Visibility="Hidden">
+
+        </StackPanel>
     </Grid>
 </Window>
