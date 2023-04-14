@@ -34,7 +34,50 @@
             <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Width="620">
                 <Label Name="timelabel" FontSize="32" Foreground="#4B752B"  FontFamily="Bodoni MT" Content="time" Margin="200,0,0,0"></Label>
             </StackPanel>
+        </StackPanel>        
+        <StackPanel x:Name="Page1" Height="650" VerticalAlignment="Bottom" Margin="0,50,0,0" Orientation="Horizontal" Visibility="Visible">
+            <StackPanel Orientation="Horizontal" Width="600" Height="532"  Margin="13,0,0,0">
+                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="16,0,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="1"/>
+                <Label Width="130" Height="300" VerticalAlignment="Bottom" Margin="-132,0,0,1" Background="red"/>
+                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="16,0,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="1"/>
+                <Label Width="130" Height="529" VerticalAlignment="Bottom" Margin="-132,0,0,1" Background="Yellow"/>
+                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="16,0,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="1"/>
+                <Label Width="130" Height="500" VerticalAlignment="Bottom" Margin="-132,0,0,1" Background="Green"/>
+                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="16,0,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="1"/>
+                <Label Width="130" Height="200" VerticalAlignment="Bottom" Margin="-132,0,0,1" Background="Orange"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Width="620" Height="530" Margin="13,0,0,0">
+                <Label Content="Meats today:" FontSize="18" Background="White"/>
+                <TextBox Height="496" FontSize="18" BorderBrush="White" Margin="0,-1,0,0"/>
+            </StackPanel>
+            <Label Content="Proteins" Width="100" Height="30" Margin="-2310,560,0,0" Padding="0,0,0,0" FontSize="16"/>
+            <Label Content="Fats" Width="100" Height="30" Margin="-1970,560,0,0" Padding="0,0,0,0" FontSize="16"/>
+            <Label Content="Carbs" Width="100" Height="30" Margin="-1680,560,0,0" Padding="0,0,0,0" FontSize="16"/>
+            <Label Content="Water" Width="100" Height="30" Margin="-1380,560,0,0" Padding="0,0,0,0" FontSize="16"/>
+            <Label Content="n %" Width="100" Height="30" Margin="-2310,0,0,0" Padding="34,0,0,0" FontSize="20"/>
+            <Label Content="n %" Width="100" Height="30" Margin="-2010,0,0,0" Padding="34,0,0,0" FontSize="20"/>
+            <Label Content="n %" Width="100" Height="30" Margin="-1710,0,0,0" Padding="34,0,0,0" FontSize="20"/>
+            <Label Content="n %" Width="100" Height="30" Margin="-1410,0,0,0" Padding="34,0,0,0" FontSize="20"/>
+            <Button Width="100" Height="30" Margin="-100,570,0,0" Background="#FF750000" BorderBrush="red" Content="EXIT" Foreground="WHITE"/>
         </StackPanel>
 
+
+
+        <StackPanel x:Name="Page2" Background="#D9F0C7" Height="654" VerticalAlignment="Top" Margin="0,50,0,0" Orientation="Vertical" Visibility="Hidden">
+            <StackPanel Orientation="Horizontal" Height="50" Margin="0,25,0,0">
+                <TextBox x:Name="Search" Width="650" Height="30" Margin="20,0,0,0" Text="Пошук" FontSize="18" Padding="0,0,0,0" PreviewMouseLeftButtonDown="TextBox_PreviewMouseLeftButtonDown"/>
+                <Button Height="30" Width="30" Background="White" Content="🔍"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel x:Name="Page3" Background="#D9F0C7" Height="654" VerticalAlignment="Top" Margin="0,50,0,0" Orientation="Horizontal" Visibility="Hidden">
+
+        </StackPanel>
+
+
+
+        <StackPanel x:Name="Page4" Background="#D9F0C7" Height="654" VerticalAlignment="Top" Margin="0,50,0,0" Orientation="Horizontal" Visibility="Hidden">
+
+        </StackPanel>
     </Grid>
 </Window>
