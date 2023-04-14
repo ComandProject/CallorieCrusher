@@ -17,15 +17,24 @@
             <Label x:Name="timelabel" FontSize="32" Width="390" Foreground="#4B752B"  FontFamily="Bodoni MT" Margin="270,0,0,0" Padding="0,10,0,0"></Label>
         </StackPanel>
         <StackPanel x:Name="Page1" Height="644" VerticalAlignment="Top" Margin="0,60,0,0" Orientation="Horizontal" Visibility="Visible" Background="#D9F0C7">
-            <StackPanel Orientation="Horizontal" Width="600" Height="532"  Margin="13,0,0,0">
-                <Label Width="130" Height="300" VerticalAlignment="Bottom" Margin="16,0,0,1" Background="red"/>
-                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="-132,0,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
-                <Label Width="130" Height="529" VerticalAlignment="Bottom" Margin="16,0,0,1" Background="Yellow"/>
-                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="-132,0,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
-                <Label Width="130" Height="500" VerticalAlignment="Bottom" Margin="16,0,0,1" Background="Green"/>
-                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="-132,0,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
-                <Label Width="130" Height="200" VerticalAlignment="Bottom" Margin="16,0,0,1" Background="Orange"/>
-                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="-132,0,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
+            <StackPanel Orientation="Horizontal" Width="600" Height="600"  Margin="13,0,0,0">
+                <StackPanel Orientation="Vertical">
+                    <Label Width="130" Height="300" VerticalAlignment="Bottom" Margin="0,300,0,0" Background="red"/>
+                    <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="0,-531,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label Width="130" Height="529" VerticalAlignment="Bottom" Margin="15,72,0,0" Background="Yellow"/>
+                    <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="15,-531,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label Width="130" Height="500" VerticalAlignment="Bottom" Margin="15,100,0,1" Background="Green"/>
+                    <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="15,-531,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label Width="130" Height="200" VerticalAlignment="Bottom" Margin="15,400,0,1" Background="Orange"/>
+                    <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="15,-531,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
+                </StackPanel>
+
                 
             </StackPanel>
             <StackPanel Orientation="Vertical" Width="620" Height="530" Margin="13,0,0,0">
