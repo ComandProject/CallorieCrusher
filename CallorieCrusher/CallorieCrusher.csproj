@@ -85,6 +85,9 @@
     <Compile Include="SingIn.xaml.cs">
       <DependentUpon>SingIn.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowAddFood.xaml.cs">
+      <DependentUpon>WindowAddFood.xaml</DependentUpon>
+    </Compile>
     <Page Include="Callorie Crusher Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -102,6 +105,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="SingIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowAddFood.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

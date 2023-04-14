@@ -7,42 +7,31 @@
         mc:Ignorable="d"
         Title="Callorie_Crusher_Main" Height="730" Width="1280"
         Background="#D9F0C7">
-    <Window.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="15"
-                                Background="{TemplateBinding Background}">
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
+    
     <Grid>
         <StackPanel Orientation="Horizontal" Height="60" VerticalAlignment="Top" Background="White">
-            <Button Content="Main" FontSize="32" Foreground="White" Background="#4B752B" FontFamily="Bodoni MT" Name="osnova" Width="150" Margin="15,5,0,5" Click="osnova_Click"></Button>
-            <Button Content="Food" FontSize="32" Foreground="White" Background="#4B752B" FontFamily="Bodoni MT" Name="food" Width="150" Margin="15,5,0,5" Click="food_Click"></Button>
-            <Button Content="Calendar" FontSize="32" Foreground="White" Background="#4B752B" FontFamily="Bodoni MT" Name="calendar" Width="150" Margin="15,5,0,5" Click="calendar_Click"></Button>
-            <Button Content="Stats" FontSize="32" Foreground="White" Background="#4B752B" FontFamily="Bodoni MT" Name="stats" Width="150" Margin="15,5,0,5" Click="stats_Click"></Button>
+            <Button BorderThickness="2" Height="45" Content="Main" FontSize="32" Foreground="White" Background="#4B752B" FontFamily="Bodoni MT" Name="osnova" Width="150" Margin="15,5,0,5" Click="osnova_Click" BorderBrush="Black"></Button>
+            <Button BorderThickness="2" Height="45" Content="Food" FontSize="32" Foreground="White" Background="#4B752B" FontFamily="Bodoni MT" Name="food" Width="150" Margin="15,5,0,5" Click="food_Click" BorderBrush="Black"></Button>
+            <Button BorderThickness="2" Height="45" Content="Calendar" FontSize="32" Foreground="White" Background="#4B752B" FontFamily="Bodoni MT" Name="calendar" Width="150" Margin="15,5,0,5" Click="calendar_Click" BorderBrush="Black"></Button>
+            <Button BorderThickness="2" Height="45" Content="Stats" FontSize="32" Foreground="White" Background="#4B752B" FontFamily="Bodoni MT" Name="stats" Width="150" Margin="15,5,0,5" Click="stats_Click" BorderBrush="Black"></Button>
             <Label x:Name="timelabel" FontSize="32" Width="390" Foreground="#4B752B"  FontFamily="Bodoni MT" Margin="270,0,0,0" Padding="0,10,0,0"></Label>
         </StackPanel>
         <StackPanel x:Name="Page1" Height="644" VerticalAlignment="Top" Margin="0,60,0,0" Orientation="Horizontal" Visibility="Visible" Background="#D9F0C7">
             <StackPanel Orientation="Horizontal" Width="600" Height="532"  Margin="13,0,0,0">
-                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="16,0,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="1"/>
-                <Label Width="130" Height="300" VerticalAlignment="Bottom" Margin="-132,0,0,1" Background="red"/>
-                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="16,0,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="1"/>
-                <Label Width="130" Height="529" VerticalAlignment="Bottom" Margin="-132,0,0,1" Background="Yellow"/>
-                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="16,0,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="1"/>
-                <Label Width="130" Height="500" VerticalAlignment="Bottom" Margin="-132,0,0,1" Background="Green"/>
-                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="16,0,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="1"/>
-                <Label Width="130" Height="200" VerticalAlignment="Bottom" Margin="-132,0,0,1" Background="Orange"/>
+                <Label Width="130" Height="300" VerticalAlignment="Bottom" Margin="16,0,0,1" Background="red"/>
+                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="-132,0,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
+                <Label Width="130" Height="529" VerticalAlignment="Bottom" Margin="16,0,0,1" Background="Yellow"/>
+                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="-132,0,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
+                <Label Width="130" Height="500" VerticalAlignment="Bottom" Margin="16,0,0,1" Background="Green"/>
+                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="-132,0,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
+                <Label Width="130" Height="200" VerticalAlignment="Bottom" Margin="16,0,0,1" Background="Orange"/>
+                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="-132,0,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
+                
             </StackPanel>
             <StackPanel Orientation="Vertical" Width="620" Height="530" Margin="13,0,0,0">
                 <Label Content="Meats today:" FontSize="18" Background="White"/>
-                <TextBox Height="496" FontSize="18" BorderBrush="White" Margin="0,-1,0,0"/>
+                <ListBox Height="400" FontSize="18" BorderBrush="White" Background="White"/>
+                <Button x:Name="addFood" Height="90" Background="#FF3AB742" Width="618" BorderThickness="2" BorderBrush="Black" Content="EDA.pp 🍽 🍔 🍤 🍨 🍩 🍻" FontSize="40" Foreground="#FF042B11" Click="addFood_Click"/>
             </StackPanel>
             <Label Content="Proteins" Width="100" Height="30" Margin="-2310,560,0,0" Padding="20,0,0,0" FontSize="16"/>
             <Label Content="Fats" Width="100" Height="30" Margin="-1970,560,0,0" Padding="20,0,0,0" FontSize="16"/>

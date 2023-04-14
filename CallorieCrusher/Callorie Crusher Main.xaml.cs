@@ -69,6 +69,12 @@ namespace CallorieCrusher
             Page3.Visibility = Visibility.Hidden;
             Page4.Visibility = Visibility.Visible;
         }
+
+        private void addFood_Click(object sender, RoutedEventArgs e)
+        {
+            WindowAddFood windowAddFood = new WindowAddFood();
+            windowAddFood.ShowDialog();
+        }
     }
 
 }
