@@ -66,5 +66,10 @@ namespace CallorieCrusher
             Page3.Visibility = Visibility.Hidden;
             Page4.Visibility = Visibility.Visible;
         }
+
+        private void TextBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Search.Clear();
+        }
     }
 }
