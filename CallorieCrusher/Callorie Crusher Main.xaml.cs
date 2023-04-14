@@ -24,14 +24,51 @@ namespace CallorieCrusher
         {
             InitializeComponent();
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(0.25);
+            timer.Interval = TimeSpan.FromSeconds(0.2);
             timer.Tick += timer_Tick;
             timer.Start();
         }
-        void timer_Tick(object sender, EventArgs e)
+        private void timer_Tick(object sender, EventArgs e)
         {
             DateTime dateTime = DateTime.Now;
-            timelabel.Content = dateTime.ToLongDateString();
+            timelabel.Content = $"{dateTime.ToLongDateString()}  {dateTime.ToShortTimeString()}";
+        }
+        private void TextBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Search.Clear();
+        }
+        private void osnova_Click(object sender, RoutedEventArgs e)
+        {
+            Page1.Visibility = Visibility.Visible;
+            Page2.Visibility = Visibility.Hidden;
+            Page3.Visibility = Visibility.Hidden;
+            Page4.Visibility = Visibility.Hidden;
+        }
+
+        private void food_Click(object sender, RoutedEventArgs e)
+        {
+            Page1.Visibility = Visibility.Hidden;
+            Page2.Visibility = Visibility.Visible;
+            Page3.Visibility = Visibility.Hidden;
+            Page4.Visibility = Visibility.Hidden;
+        }
+
+        private void calendar_Click(object sender, RoutedEventArgs e)
+        {
+            Page1.Visibility = Visibility.Hidden;
+            Page2.Visibility = Visibility.Hidden;
+            Page3.Visibility = Visibility.Visible;
+            Page4.Visibility = Visibility.Hidden;
+
+        }
+
+        private void stats_Click(object sender, RoutedEventArgs e)
+        {
+            Page1.Visibility = Visibility.Hidden;
+            Page2.Visibility = Visibility.Hidden;
+            Page3.Visibility = Visibility.Hidden;
+            Page4.Visibility = Visibility.Visible;
         }
     }
+
 }
