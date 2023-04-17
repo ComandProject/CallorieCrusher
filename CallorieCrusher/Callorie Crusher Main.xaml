@@ -68,10 +68,21 @@
         <StackPanel x:Name="Page3" Background="#D9F0C7" Height="639" VerticalAlignment="Top" Margin="0,65,0,0" Visibility="Visible" Orientation="Horizontal">
             <TextBox Height="140" Width="100" Background="Red"/>
             <StackPanel Orientation="Vertical" Width="1178">
-                <Calendar Height="370" FlowDirection="RightToLeft" FontFamily="Times New Roman"  >
+                <Calendar Height="344" FlowDirection="RightToLeft" FontFamily="Times New Roman"  >
                     
                 </Calendar>
-                
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="300" Width="1178">
+                    <Label Height="200" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Background="Green" Margin="0,0,0,0"/>
+                    <Label Height="250" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Margin="20,0,0,0" Background="Green"/>
+                    <Label Height="230" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Margin="20,0,0,0" Background="Green"/>
+                    <Label Height="150" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Margin="20,0,0,0" Background="Green"/>
+                    <Label Height="100" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Margin="20,0,0,0" Background="Green"/>
+                    <Label Height="300" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Margin="20,0,0,0" Background="Green"/>
+                    <Label Height="90" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Margin="20,0,0,0" Background="Green"/>
+                    <Label Height="10" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Margin="20,0,0,0" Background="Green"/>
+                    <Label Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Margin="20,0,0,0" Background="Green"/>
+                    <Label Height="120" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Margin="20,0,0,0" Background="Green"/>
+                </StackPanel>
             </StackPanel>
 
         </StackPanel>
