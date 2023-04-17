@@ -4,23 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CallorieCrusher"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="SingIn" Height="360" Width="470"
+        Height="360" Width="340"
          Background="#D9F0C7">
-    <Window.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="15"
-                                Background="{TemplateBinding Background}">
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="22*"/>
@@ -29,29 +17,29 @@
         <StackPanel Grid.ColumnSpan="2">
 
             <Label Content="CallorieCrusher" FontFamily="Bodoni MT" FontSize="42" HorizontalAlignment="Center"></Label>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Login:" FontFamily="Bodoni MT" FontSize="28" HorizontalAlignment="Center" Margin="0,0,78,0"></Label>
-                <TextBox Width="280" Height="35" Name="login" FontFamily="Bodoni MT" FontSize="28" Margin="20,0,20,0"></TextBox>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <TextBox  Width="280" Height="35" Name="login" FontFamily="Bodoni MT" FontSize="23" Background="#7FFFFFFF"  materialDesign:HintAssist.Hint="Login" Style="{StaticResource ResourceKey=MaterialDesignTextBox}" BorderThickness="0,0,0,1" mah:ControlsHelper.FocusBorderThickness="0,0,10,0" CaretBrush="{DynamicResource MaterialDesignBackground}"></TextBox>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Password:" FontFamily="Bodoni MT" FontSize="28" HorizontalAlignment="Center" Margin="0,0,55,0"></Label>
-                <PasswordBox Name="pass"  Width="280" FontFamily="Bodoni MT" FontSize="28" Height="35"></PasswordBox>
+            <StackPanel Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+
+                <PasswordBox Name="pass"  Width="280" FontFamily="Bodoni MT" FontSize="23" Height="35" materialDesign:HintAssist.Hint="Password" Background="#7FFFFFFF" ></PasswordBox>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Weight:" FontFamily="Bodoni MT" FontSize="28" HorizontalAlignment="Center" Margin="0,0,60,0"></Label>
-                <TextBox Width="280" Height="35" Name="weight" FontFamily="Bodoni MT" FontSize="28" Margin="20,0,20,0"></TextBox>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <TextBox Width="280" Height="35" Name="weight" FontFamily="Bodoni MT" FontSize="23"  Background="#7FFFFFFF" materialDesign:HintAssist.Hint="Weight" ></TextBox>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Goal:" FontFamily="Bodoni MT" FontSize="28" HorizontalAlignment="Center" Margin="0,0,80,0"></Label>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <!--<Label Content="Goal:" FontFamily="Bodoni MT" FontSize="28" HorizontalAlignment="Center" Margin="0,0,80,0"></Label>-->
                 <RadioButton Name="grow" Content="Grow" FontFamily="Bodoni MT" FontSize="28"></RadioButton>
                 <RadioButton Name="lose" Content="Lose" FontFamily="Bodoni MT" FontSize="28"></RadioButton>
                 <RadioButton Name="stay" Content="Stay" FontFamily="Bodoni MT" FontSize="28"></RadioButton>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Desired weight:" Foreground="Gray" FontFamily="Bodoni MT" FontSize="24" HorizontalAlignment="Center"></Label>
-                <TextBox IsEnabled="False" Width="280" Height="35" Name="desiredweight" FontFamily="Bodoni MT" FontSize="28" Margin="20,0,20,0"></TextBox>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <!--<Label Content="Desired weight:" Foreground="Gray" FontFamily="Bodoni MT" FontSize="24" HorizontalAlignment="Center"></Label>-->
+                <!--<TextBox IsEnabled="False" Width="280" Height="35" Name="desiredweight" FontFamily="Bodoni MT" FontSize="23"  Background="#7FFFFFFF" materialDesign:HintAssist.Hint="Desired weight"></TextBox>-->
+                <TextBox Width="280" Height="35" Name="desiredweight" FontFamily="Bodoni MT" FontSize="23"  Background="#7FFFFFFF" materialDesign:HintAssist.Hint="Desired weight" ></TextBox>
+
             </StackPanel>
-            <Button Name="sing" Background="#F2D968" Content="Sign in" FontFamily="Bodoni MT" FontSize="28" Margin="20,20,20,0"  ></Button>
+            <Button Name="sing" Background="#FF79F268" BorderBrush="Black" Foreground="#DD000000" Content="Sign in" FontFamily="Bodoni MT" FontSize="20" Margin="20,20,20,0" Width="280"  ></Button>
         </StackPanel>
     </Grid>
 </Window>

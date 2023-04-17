@@ -6,35 +6,40 @@
         xmlns:local="clr-namespace:CallorieCrusher"
          xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
         mc:Ignorable="d"
         Title="Register" Height="350" Width="300"
          Background="#D9F0C7">
-    <Window.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="15"
-                                Background="{TemplateBinding Background}">
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
+    <!--<Window.Resources>
+        <local:ZeroToVisibleConverter x:Key="ZeroToVisibleConverter" />
+    </Window.Resources>-->
     <Grid>
+        
         <StackPanel>
             <Label Content="Callorie Crusher" FontFamily="Bodoni MT" FontSize="36" HorizontalAlignment="Center"></Label>
-            <TextBox Name="login" FontFamily="Bodoni MT" FontSize="28" Margin="20,10,20,0" Background="#7FFFFFFF"  materialDesign:HintAssist.Hint="Enter Login" Style="{StaticResource ResourceKey=MaterialDesignTextBox}" BorderThickness="0,0,0,1" mah:ControlsHelper.FocusBorderThickness="0,0,10,0" CaretBrush="{DynamicResource MaterialDesignBackground}">
-                <TextBox.Resources>
-                    <SolidColorBrush x:Key="MaterialDesignTextBoxCaretBrush" Color="Yellow" />
-                </TextBox.Resources>
-            </TextBox>
-            
-            <PasswordBox  Name="pass" FontFamily="Bodoni MT" FontSize="28" Margin="20,20,20,0" Background="#7FFFFFFF"  materialDesign:HintAssist.Hint="Enter Password" BorderThickness="0,0,0,1" mah:ControlsHelper.FocusBorderThickness="0,0,10,0"/>
-            <Button Name="log" Background="#F2D968" Content="Log In" FontFamily="Bodoni MT" FontSize="28" Margin="20,40,20,0"></Button>
-            <Button Name="sing" Background="#F2D968" Content="Sign in" FontFamily="Bodoni MT" FontSize="28" Margin="20,20,20,0"  ></Button>
+            <TextBox Name="login" FontFamily="Bodoni MT" FontSize="28" Margin="20,10,20,0" Background="#7FFFFFFF"  materialDesign:HintAssist.Hint="Login" Style="{StaticResource ResourceKey=MaterialDesignTextBox}" BorderThickness="0,0,0,1" mah:ControlsHelper.FocusBorderThickness="0,0,10,0" CaretBrush="{DynamicResource MaterialDesignBackground}"></TextBox>
+
+            <!--<PasswordBox PasswordChar="🍔" />-->
+            <!--<PasswordBox x:Name="passwordBox" />-->
+
+            <!--<PasswordBox x:Name="PasswordLogina"  FontFamily="Bodoni MT" FontSize="28" Margin="20,20,20,0" Background="#7FFFFFFF"  materialDesign:HintAssist.Hint="Enter Password" BorderThickness="0,0,0,1" mah:ControlsHelper.FocusBorderThickness="0,0,10,0">
+                <PasswordBox.Template>
+                    <ControlTemplate TargetType="{x:Type PasswordBox}">
+                        <TextBlock Text="&#x1F354;">
+                            
+                        </TextBlock>
+                    </ControlTemplate>
+                </PasswordBox.Template>
+            </PasswordBox>-->
+
+
+
+            <PasswordBox x:Name="PasswordLogina" FontFamily="Bodoni MT" FontSize="28" Margin="20,20,20,0" Background="#7FFFFFFF" materialDesign:HintAssist.Hint="Password" ></PasswordBox>
+                  <!--materialDesign:HintAssist.Hint="Enter Password" BorderThickness="0,0,0,1" mah:ControlsHelper.FocusBorderThickness=>"0,0,10,0"/>-->
+            <!--<Image Source="/Resources/burger.jpg" Width="20" Height="20" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,30,0" 
+           Visibility="{Binding ElementName=PasswordLogina, Path=Password.Length, Converter={StaticResource ZeroToVisibleConverter}}"/>-->
+            <Button x:Name="LoginButton" Background="#FF79F268" BorderBrush="Black" Foreground="#DD000000" Content="&#x1F354;Log In🍔" FontFamily="Bodoni MT" FontSize="20" Margin="20,40,20,0" Padding="0,0,0,0" ></Button>
+            <Button x:Name="RegistrButton" Background="#FF79F268" BorderBrush="Black" Foreground="#DD000000" Content="🍔Sign Up🍔" FontFamily="Bodoni MT" FontSize="20" Margin="20,20,20,0" Padding="0,0,0,0.2" Click="RegistrButton_Click" ></Button>
         </StackPanel>
     </Grid>
 </Window>
