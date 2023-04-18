@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -21,11 +22,12 @@ namespace CallorieCrusher
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string connect = @"Data Source = DESKTOP-JA41I9L; Initial Catalog = CalCrush; Trusted_connection=True";
+        string sqlExpression = "SELECT * FROM Registr";
         public MainWindow()
         {
             InitializeComponent();
-            Callorie_Crusher_Main ccm = new Callorie_Crusher_Main();
-            ccm.Show();
+            
 
         }
 
@@ -35,50 +37,54 @@ namespace CallorieCrusher
             signIp.Show();
         }
 
-        private void PasswordLogina_PasswordChanged(object sender, RoutedEventArgs e)
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            PasswordBox passwordBox = (PasswordBox)sender;
-            string password = passwordBox.Password;
-
-            // Создаем текстовый блок для отображения символа бургера 🍔
-            TextBlock textBlock = new TextBlock
+            ProverkaAutorization();
+        }
+        private void ProverkaAutorization()
+        {
+            
+            if (login.Text == "" || PasswordLogina.Password.ToString() == "")
             {
-                Text = "🍔",
-                FontSize = passwordBox.FontSize,
-                Foreground = passwordBox.Foreground,
-                Background = passwordBox.Background,
-                Margin = passwordBox.Margin,
-                Padding = passwordBox.Padding,
-                HorizontalAlignment = passwordBox.HorizontalAlignment,
-                VerticalAlignment = passwordBox.VerticalAlignment,
-                Width = passwordBox.Width,
-                Height = passwordBox.Height,
-                Visibility = password.Length == 0 ? Visibility.Visible : Visibility.Hidden // Определяем видимость символа бургера 🍔 в зависимости от наличия пароля
-            };
+                MessageBox.Show("Поля не могут быть пустыми");
+                return;
+            }
+            int kolProverka = 0;
+            using (SqlConnection connection = new SqlConnection(connect))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sqlExpression, connection);
+                    SqlDataReader reader = command.ExecuteReader();
 
-            // Заменяем содержимое PasswordBox на текстовый блок
-           
-            //PasswordBox PasswordLogina = (PasswordBox)sender;
-            //string password = PasswordLogina.Password;
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            object nik = reader.GetValue(1);
+                            object pass = reader.GetValue(2);
 
-            //// Создаем текстовый блок для отображения символа бургера 🍔
-            //TextBlock textBlock = new TextBlock
-            //{
-            //    Text = "🍔",
-            //    FontSize = PasswordLogina.FontSize,
-            //    Foreground = PasswordLogina.Foreground,
-            //    Background = PasswordLogina.Background,
-            //    Margin = PasswordLogina.Margin,
-            //    Padding = PasswordLogina.Padding,
-            //    HorizontalAlignment = PasswordLogina.HorizontalAlignment,
-            //    VerticalAlignment = PasswordLogina.VerticalAlignment,
-            //    Width = PasswordLogina.Width,
-            //    Height = PasswordLogina.Height,
-            //    Visibility = password.Length == 0 ? Visibility.Visible : Visibility.Hidden // Определяем видимость символа бургера 🍔 в зависимости от наличия пароля
-            //};
-
-            //// Заменяем содержимое PasswordBox на текстовый блок
-            //this.PasswordLogina.Content = textBlock;
+                            if (login.Text.ToLower() == nik.ToString().ToLower())
+                            {
+                                if (PasswordLogina.Password.ToString() != pass.ToString())
+                                {
+                                    MessageBox.Show("Incorrect Password, try again");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Successfully");
+                                    Callorie_Crusher_Main ccm = new Callorie_Crusher_Main();
+                                    ccm.Show();
+                                    Close();
+                                    //reader.Close();
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception e) { MessageBox.Show(e.Message); };
+            }
         }
     }
 }

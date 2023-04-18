@@ -17,28 +17,11 @@
         
         <StackPanel>
             <Label Content="Callorie Crusher" FontFamily="Bodoni MT" FontSize="36" HorizontalAlignment="Center"></Label>
-            <TextBox Name="login" FontFamily="Bodoni MT" FontSize="28" Margin="20,10,20,0" Background="#7FFFFFFF"  materialDesign:HintAssist.Hint="Login" Style="{StaticResource ResourceKey=MaterialDesignTextBox}" BorderThickness="0,0,0,1" mah:ControlsHelper.FocusBorderThickness="0,0,10,0" CaretBrush="{DynamicResource MaterialDesignBackground}"></TextBox>
-
-            <!--<PasswordBox PasswordChar="🍔" />-->
-            <!--<PasswordBox x:Name="passwordBox" />-->
-
-            <!--<PasswordBox x:Name="PasswordLogina"  FontFamily="Bodoni MT" FontSize="28" Margin="20,20,20,0" Background="#7FFFFFFF"  materialDesign:HintAssist.Hint="Enter Password" BorderThickness="0,0,0,1" mah:ControlsHelper.FocusBorderThickness="0,0,10,0">
-                <PasswordBox.Template>
-                    <ControlTemplate TargetType="{x:Type PasswordBox}">
-                        <TextBlock Text="&#x1F354;">
-                            
-                        </TextBlock>
-                    </ControlTemplate>
-                </PasswordBox.Template>
-            </PasswordBox>-->
-
-
+            <TextBox x:Name="login" FontFamily="Bodoni MT" FontSize="28" Margin="20,10,20,0" Background="#7FFFFFFF"  materialDesign:HintAssist.Hint="Login" Style="{StaticResource ResourceKey=MaterialDesignTextBox}" BorderThickness="0,0,0,1" mah:ControlsHelper.FocusBorderThickness="0,0,10,0" CaretBrush="{DynamicResource MaterialDesignBackground}"></TextBox>
 
             <PasswordBox x:Name="PasswordLogina" FontFamily="Bodoni MT" FontSize="28" Margin="20,20,20,0" Background="#7FFFFFFF" materialDesign:HintAssist.Hint="Password" ></PasswordBox>
-                  <!--materialDesign:HintAssist.Hint="Enter Password" BorderThickness="0,0,0,1" mah:ControlsHelper.FocusBorderThickness=>"0,0,10,0"/>-->
-            <!--<Image Source="/Resources/burger.jpg" Width="20" Height="20" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,30,0" 
-           Visibility="{Binding ElementName=PasswordLogina, Path=Password.Length, Converter={StaticResource ZeroToVisibleConverter}}"/>-->
-            <Button x:Name="LoginButton" Background="#FF79F268" BorderBrush="Black" Foreground="#DD000000" Content="&#x1F354;Log In🍔" FontFamily="Bodoni MT" FontSize="20" Margin="20,40,20,0" Padding="0,0,0,0" ></Button>
+
+            <Button x:Name="LoginButton" Background="#FF79F268" BorderBrush="Black" Foreground="#DD000000" Content="&#x1F354;Log In🍔" FontFamily="Bodoni MT" FontSize="20" Margin="20,40,20,0" Padding="0,0,0,0" Click="LoginButton_Click" ></Button>
             <Button x:Name="RegistrButton" Background="#FF79F268" BorderBrush="Black" Foreground="#DD000000" Content="🍔Sign Up🍔" FontFamily="Bodoni MT" FontSize="20" Margin="20,20,20,0" Padding="0,0,0,0.2" Click="RegistrButton_Click" ></Button>
         </StackPanel>
     </Grid>
