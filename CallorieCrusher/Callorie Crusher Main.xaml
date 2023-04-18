@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CallorieCrusher"
-        xmlns:controlzex="urn:controlzex" x:Class="CallorieCrusher.Callorie_Crusher_Main"
+        xmlns:controlzex="urn:controlzex" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="CallorieCrusher.Callorie_Crusher_Main"
         mc:Ignorable="d"
         Title="Callorie_Crusher_Main" Height="730" Width="1280"
         Background="#D9F0C7">
@@ -66,22 +66,18 @@
         </StackPanel>
 
         <StackPanel x:Name="Page3" Background="#D9F0C7" Height="639" VerticalAlignment="Top" Margin="0,65,0,0" Visibility="Visible" Orientation="Horizontal">
-            <TextBox Height="140" Width="100" Background="Red"/>
-            <StackPanel Orientation="Vertical" Width="1178">
-                <Calendar Height="344" FlowDirection="RightToLeft" FontFamily="Times New Roman"  >
-                    
-                </Calendar>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="300" Width="1178">
+            <TextBox Height="549" Width="285" Background="Red"/>
+            <StackPanel Orientation="Vertical" Width="950" Height="600" Margin="30,0,0,0">
+                <Calendar Height="344" FlowDirection="RightToLeft" FontFamily="Times New Roman" Width="965" HorizontalAlignment="Right"  />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="256" Width="965">
                     <Label Height="200" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Background="Green" Margin="0,0,0,0"/>
                     <Label Height="250" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Margin="20,0,0,0" Background="Green"/>
                     <Label Height="230" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Margin="20,0,0,0" Background="Green"/>
                     <Label Height="150" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Margin="20,0,0,0" Background="Green"/>
                     <Label Height="100" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Margin="20,0,0,0" Background="Green"/>
-                    <Label Height="300" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Margin="20,0,0,0" Background="Green"/>
+                    <Label Height="215" VerticalAlignment="Bottom" Width="100" Margin="20,0,0,0" Background="Green"/>
                     <Label Height="90" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Margin="20,0,0,0" Background="Green"/>
                     <Label Height="10" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Margin="20,0,0,0" Background="Green"/>
-                    <Label Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Margin="20,0,0,0" Background="Green"/>
-                    <Label Height="120" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100" Margin="20,0,0,0" Background="Green"/>
                 </StackPanel>
             </StackPanel>
 
