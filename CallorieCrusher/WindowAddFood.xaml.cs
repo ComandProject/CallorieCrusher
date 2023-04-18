@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,15 @@ namespace CallorieCrusher
         public WindowAddFood()
         {
             InitializeComponent();
+        }
+
+        private void TimePicker_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var textBox = (sender as TimePicker)?.Template?.FindName("PART_TextBox", sender as TimePicker) as TextBox;
+            if (textBox != null && !textBox.IsReadOnly)
+            {
+                e.Handled = true;
+            }
         }
     }
 }
