@@ -58,14 +58,14 @@
 
 
 
-        <StackPanel x:Name="Page2" Background="#D9F0C7" Height="629" VerticalAlignment="Top" Margin="0,65,0,0" Orientation="Vertical" Visibility="Hidden">
+        <StackPanel x:Name="Page2" Background="#D9F0C7" Height="629" VerticalAlignment="Top" Margin="0,65,0,0" Orientation="Vertical" Visibility="Visible">
             <StackPanel Orientation="Horizontal" Height="50" Margin="0,25,0,0">
                 <TextBox x:Name="Search" Width="650" Height="30" Margin="20,0,0,0" Text="Пошук" FontSize="18" Padding="0,0,0,0" PreviewMouseLeftButtonDown="TextBox_PreviewMouseLeftButtonDown"/>
                 <Button Height="30" Width="30" Content="🔍" Background="Transparent" Foreground="#DD000000" FontSize="14" Padding="0,0,0,0" BorderThickness="0"/>
             </StackPanel>
         </StackPanel>
 
-        <StackPanel x:Name="Page3" Background="#D9F0C7" Height="639" VerticalAlignment="Top" Margin="0,65,0,0" Visibility="Visible" Orientation="Horizontal">
+        <StackPanel x:Name="Page3" Background="#D9F0C7" Height="639" VerticalAlignment="Top" Margin="0,65,0,0" Visibility="Hidden" Orientation="Horizontal">
             <TextBox Height="549" Width="285" Background="Red"/>
             <StackPanel Orientation="Vertical" Width="950" Height="600" Margin="30,0,0,0">
                 <Calendar Height="344" FlowDirection="RightToLeft" FontFamily="Times New Roman" Width="965" HorizontalAlignment="Right"  />

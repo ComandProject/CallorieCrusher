@@ -10,9 +10,6 @@
         mc:Ignorable="d"
         Title="Register" Height="350" Width="300"
          Background="#D9F0C7">
-    <!--<Window.Resources>
-        <local:ZeroToVisibleConverter x:Key="ZeroToVisibleConverter" />
-    </Window.Resources>-->
     <Grid>
         
         <StackPanel>

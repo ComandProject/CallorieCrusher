@@ -28,7 +28,6 @@ namespace CallorieCrusher
         {
             InitializeComponent();
             
-
         }
 
         private void RegistrButton_Click(object sender, RoutedEventArgs e)
