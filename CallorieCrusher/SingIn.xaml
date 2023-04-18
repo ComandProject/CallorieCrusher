@@ -18,28 +18,28 @@
 
             <Label Content="CallorieCrusher" FontFamily="Bodoni MT" FontSize="42" HorizontalAlignment="Center"></Label>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                <TextBox  Width="280" Height="35" Name="login" FontFamily="Bodoni MT" FontSize="23" Background="#7FFFFFFF"  materialDesign:HintAssist.Hint="Login" Style="{StaticResource ResourceKey=MaterialDesignTextBox}" BorderThickness="0,0,0,1" mah:ControlsHelper.FocusBorderThickness="0,0,10,0" CaretBrush="{DynamicResource MaterialDesignBackground}"></TextBox>
+                <TextBox x:Name="LogInBox" Width="280" Height="35"  FontFamily="Bodoni MT" FontSize="23" Background="#7FFFFFFF"  materialDesign:HintAssist.Hint="Login" Style="{StaticResource ResourceKey=MaterialDesignTextBox}" BorderThickness="0,0,0,1" mah:ControlsHelper.FocusBorderThickness="0,0,10,0" CaretBrush="{DynamicResource MaterialDesignBackground}"></TextBox>
             </StackPanel>
             <StackPanel Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
 
-                <PasswordBox Name="pass"  Width="280" FontFamily="Bodoni MT" FontSize="23" Height="35" materialDesign:HintAssist.Hint="Password" Background="#7FFFFFFF" ></PasswordBox>
+                <PasswordBox x:Name="PassBox"  Width="280" FontFamily="Bodoni MT" FontSize="23" Height="35" materialDesign:HintAssist.Hint="Password" Background="#7FFFFFFF" ></PasswordBox>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                <TextBox Width="280" Height="35" Name="weight" FontFamily="Bodoni MT" FontSize="23"  Background="#7FFFFFFF" materialDesign:HintAssist.Hint="Weight" ></TextBox>
+                <TextBox Width="280" Height="35" x:Name="WeightBox" FontFamily="Bodoni MT" FontSize="23"  Background="#7FFFFFFF" materialDesign:HintAssist.Hint="Weight" ></TextBox>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                 <!--<Label Content="Goal:" FontFamily="Bodoni MT" FontSize="28" HorizontalAlignment="Center" Margin="0,0,80,0"></Label>-->
-                <RadioButton Name="grow" Content="Grow" FontFamily="Bodoni MT" FontSize="28"></RadioButton>
-                <RadioButton Name="lose" Content="Lose" FontFamily="Bodoni MT" FontSize="28"></RadioButton>
-                <RadioButton Name="stay" Content="Stay" FontFamily="Bodoni MT" FontSize="28"></RadioButton>
+                <RadioButton x:Name="growRadio" Content="Grow" FontFamily="Bodoni MT" FontSize="28"></RadioButton>
+                <RadioButton x:Name="loseRadio" Content="Lose" FontFamily="Bodoni MT" FontSize="28"></RadioButton>
+                <RadioButton x:Name="stayRadio" Content="Stay" FontFamily="Bodoni MT" FontSize="28" IsChecked="True"></RadioButton>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                 <!--<Label Content="Desired weight:" Foreground="Gray" FontFamily="Bodoni MT" FontSize="24" HorizontalAlignment="Center"></Label>-->
                 <!--<TextBox IsEnabled="False" Width="280" Height="35" Name="desiredweight" FontFamily="Bodoni MT" FontSize="23"  Background="#7FFFFFFF" materialDesign:HintAssist.Hint="Desired weight"></TextBox>-->
-                <TextBox Width="280" Height="35" Name="desiredweight" FontFamily="Bodoni MT" FontSize="23"  Background="#7FFFFFFF" materialDesign:HintAssist.Hint="Desired weight" ></TextBox>
+                <TextBox  Width="280" Height="35" Name="desiredweightBox" FontFamily="Bodoni MT" FontSize="23"  Background="#7FFFFFFF" materialDesign:HintAssist.Hint="Desired weight" ></TextBox>
 
             </StackPanel>
-            <Button Name="sing" Background="#FF79F268" BorderBrush="Black" Foreground="#DD000000" Content="Sign in" FontFamily="Bodoni MT" FontSize="20" Margin="20,20,20,0" Width="280"  ></Button>
+            <Button x:Name="RegiButton" Background="#FF79F268" BorderBrush="Black" Foreground="#DD000000" Content="Sign in" FontFamily="Bodoni MT" FontSize="20" Margin="20,20,20,0" Width="280" Click="RegiButton_Click"  ></Button>
         </StackPanel>
     </Grid>
 </Window>

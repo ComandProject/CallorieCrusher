@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,82 @@ namespace CallorieCrusher
     /// </summary>
     public partial class SingIn : Window
     {
+        private string connect = @"Data Source = DESKTOP-JA41I9L; Initial Catalog = CalCrush; Trusted_connection=True";
+        string sqlExpression = "SELECT * FROM Registr";
+        private string str = "";
         public SingIn()
         {
             InitializeComponent();
+            str = "INSERT INTO Registr(Logins, Passwords, Weights, Grow, Lose, Stay, DesiredWeight) ";
+        }
+
+        private void RegiButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(LogInBox.Text == "" || PassBox.ToString() == "" || WeightBox.Text == "" || desiredweightBox.Text == "")
+            {
+                MessageBox.Show("Поля не могут быть пустыми");
+                return;
+            }
+            else
+            {
+                ProverkaRegi();
+            }
+        }
+
+        private void Registr()
+        {
+            using (SqlConnection connection = new SqlConnection(connect))
+            {
+                string str2 = str + "VALUES('" + LogInBox.Text + "', '" + PassBox.Password.ToString() + "', " + WeightBox.Text + ", '" + growRadio.IsChecked.Value.ToString() + "', '" + loseRadio.IsChecked.Value.ToString() + "', '" + stayRadio.IsChecked.Value.ToString() + "', " + desiredweightBox.Text + ")";
+                connection.Open();
+                SqlCommand command = new SqlCommand(str2, connection);
+                int num = command.ExecuteNonQuery();
+
+                Close();
+            }
+        }
+        private void ProverkaRegi()
+        {
+            if (LogInBox.Text == "" || PassBox.ToString() == "" || WeightBox.Text == "" || desiredweightBox.Text == "")
+            {
+                MessageBox.Show("Поля не могут быть пустыми");
+                return;
+            }
+            int kolProverka = 0;
+            using (SqlConnection connection = new SqlConnection(connect))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sqlExpression, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            object nik = reader.GetValue(1);
+                            if (LogInBox.Text.ToLower() == nik.ToString().ToLower())
+                            {
+                                kolProverka++;
+                                MessageBox.Show("Этот ник занят. Попробуйте другой.");
+                                return;
+                            }
+                        }
+                        if (kolProverka > 0)
+                        {
+                            return;
+                        }
+                        else if (kolProverka == 0)
+                        {
+                            MessageBox.Show("Successfully");
+                            Registr();
+                        }
+                        reader.Close();
+                    }
+                }
+                catch (Exception e) { MessageBox.Show(e.Message); };
+            }
         }
     }
 }
