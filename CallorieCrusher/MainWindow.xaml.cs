@@ -19,19 +19,6 @@ namespace CallorieCrusher
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public class ZeroToVisibleConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            int length = (int)value;
-            return length == 0 ? Visibility.Collapsed : Visibility.Visible;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
     public partial class MainWindow : Window
     {
         public MainWindow()
