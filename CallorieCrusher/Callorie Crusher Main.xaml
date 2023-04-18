@@ -8,7 +8,34 @@
         mc:Ignorable="d"
         Title="Callorie_Crusher_Main" Height="730" Width="1280"
         Background="#D9F0C7">
-
+    <Window.Resources>
+        <DataTemplate x:Key="FoodTempalte">
+            <Border BorderBrush="#473366" BorderThickness="1">
+                <StackPanel Width="300">
+                    <Image Width="150" Height="150"  Source="{Binding Path=picture}"/>
+                    <Rectangle Height="1" Width="150" Fill="#4B752B"></Rectangle>
+                    <TextBlock TextWrapping="Wrap" FontFamily="Bodoni MT" FontSize="22" Text="{Binding Path=name}" HorizontalAlignment="Left" TextAlignment="Center"/>
+                    <TextBlock TextWrapping="Wrap" Foreground="Gray" FontFamily="Bodoni MT" FontSize="18" Text="{Binding Path=about}" HorizontalAlignment="Left" TextAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock TextWrapping="Wrap" FontFamily="Bodoni MT" FontSize="15" Text="{Binding Path=bilok}" HorizontalAlignment="Left" TextAlignment="Center"/>
+                        <TextBlock TextWrapping="Wrap" FontFamily="Bodoni MT" FontSize="15" Text="/" HorizontalAlignment="Left" TextAlignment="Center"/>
+                        <TextBlock TextWrapping="Wrap" FontFamily="Bodoni MT" FontSize="15" Text="{Binding Path=zhirok}" HorizontalAlignment="Left" TextAlignment="Center"/>
+                        <TextBlock TextWrapping="Wrap" FontFamily="Bodoni MT" FontSize="15" Text="/" HorizontalAlignment="Left" TextAlignment="Center"/>
+                        <TextBlock TextWrapping="Wrap" FontFamily="Bodoni MT" FontSize="15" Text="{Binding Path=uglevodi}" HorizontalAlignment="Left" TextAlignment="Center"/>
+                        <TextBlock TextWrapping="Wrap" FontFamily="Bodoni MT" FontSize="15" Text="/" HorizontalAlignment="Left" TextAlignment="Center"/>
+                        <TextBlock TextWrapping="Wrap" FontFamily="Bodoni MT" FontSize="15" Text="{Binding Path=water}" HorizontalAlignment="Left" TextAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock TextWrapping="Wrap" FontFamily="Bodoni MT" FontSize="18" Text="Cal:" HorizontalAlignment="Left" TextAlignment="Center"></TextBlock>
+                        <TextBlock TextWrapping="Wrap" FontFamily="Bodoni MT" FontSize="18" Text="{Binding Path=cal}" HorizontalAlignment="Left" TextAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+        <ItemsPanelTemplate x:Key="test1">
+            <WrapPanel/>
+        </ItemsPanelTemplate>
+    </Window.Resources>
     <Grid>
         <StackPanel Orientation="Horizontal" Height="60" VerticalAlignment="Top" Background="White">
             <Button BorderThickness="2" Height="45" Content="Main" FontSize="32" Foreground="White" Background="#4B752B" FontFamily="Bodoni MT" x:Name="osnova" Width="150" Margin="15,5,0,5" Click="osnova_Click" BorderBrush="Black"/>
@@ -63,6 +90,9 @@
                 <TextBox x:Name="Search" Width="650" Height="30" Margin="20,0,0,0" Text="Пошук" FontSize="18" Padding="0,0,0,0" PreviewMouseLeftButtonDown="TextBox_PreviewMouseLeftButtonDown"/>
                 <Button Height="30" Width="30" Content="🔍" Background="Transparent" Foreground="#DD000000" FontSize="14" Padding="0,0,0,0" BorderThickness="0"/>
             </StackPanel>
+            <ListBox BorderThickness="0" Background="Transparent" Margin="20,0,20,0" x:Name="FoodList" ItemTemplate="{StaticResource FoodTempalte}"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                ItemsPanel="{StaticResource test1}"/>
         </StackPanel>
 
         <StackPanel x:Name="Page3" Background="#D9F0C7" Height="639" VerticalAlignment="Top" Margin="0,65,0,0" Visibility="Hidden" Orientation="Horizontal">
@@ -85,6 +115,27 @@
 
 
 
-        <StackPanel x:Name="Page4" Background="#D9F0C7" Height="639" VerticalAlignment="Top" Margin="0,65,0,0" Orientation="Horizontal" Visibility="Hidden"/>
+        <StackPanel x:Name="Page4" Background="#D9F0C7" Height="639" VerticalAlignment="Top" Margin="0,65,0,0" Orientation="Vertical" Visibility="Visible">
+            <StackPanel Orientation="Vertical" Height="70" Margin="0,20,0,0">
+                <Label Height="35" Content="Поточна вага" FontSize="24" Width="150" Padding="0,0,0,0"/>
+                <TextBox Height="35" Text="68" FontSize="30"  Width="58" Padding="0,0,0,0" FontFamily="Arial Black"/>
+            </StackPanel>
+            <StackPanel Height="80" Margin="0,20,0,0">
+                <StackPanel Orientation="Horizontal" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Label  Content="Початкова вага" Width="200" FontSize="24"/>
+                    <Label  Content="Бажана вага" Width="200" FontSize="24" Margin="300,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Label  Content="70" Width="48" FontSize="30" Margin="350,0,0,0" FontFamily="Arial Black"/>
+                    <Label  Content="64" Width="48" FontSize="30" Margin="440,0,0,0" FontFamily="Arial Black"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel  Height="450" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Marth - 12                         69,1 кг     ⬇  &#xD;&#xA;Marth - 12                         69,1 кг     ⬆ " Width="600" Height="430" Background="White" FontSize="35" Padding="0,0,0,0"/>
+                <StackPanel Width="600" Height="430" Margin="30,0,0,0" Background="White">
+                    <Line X1="0" Y1="300" X2="600" Y2="150" Stroke="Green" StrokeThickness="3" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
