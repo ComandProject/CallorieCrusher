@@ -84,6 +84,8 @@
             <StackPanel Orientation="Horizontal" Height="50" Margin="0,25,0,0">
                 <TextBox x:Name="Search" Width="650" Height="30" Margin="20,0,0,0" Text="Пошук" FontSize="18" Padding="0,0,0,0" PreviewMouseLeftButtonDown="TextBox_PreviewMouseLeftButtonDown"/>
                 <Button Height="30" Width="30" Content="🔍" Background="Transparent" Foreground="#DD000000" FontSize="14" Padding="0,0,0,0" BorderThickness="0"/>
+                <Button Background="#4B752B" Content="Add" Margin="360,0,0,0" BorderBrush="Black" Click="Button_Click"/>
+                <Button Background="#4B752B" Content="Delete" Width="100" Margin="10,0,0,0" BorderBrush="Black"/>
             </StackPanel>
             <ListBox BorderThickness="0" Background="Transparent" Margin="20,0,20,0" x:Name="FoodList" ItemTemplate="{StaticResource FoodTempalte}"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"

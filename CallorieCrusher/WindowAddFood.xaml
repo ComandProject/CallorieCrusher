@@ -9,16 +9,16 @@
         mc:Ignorable="d"
         Title="WindowAddFood" Height="450" Width="900" Background="#D9F0C7" ScrollViewer.VerticalScrollBarVisibility="Disabled">
     <Grid>
-        <ComboBox Background="AliceBlue" x:Name="FirstFoodCombo" Height="25" Width="126" HorizontalAlignment="Left" VerticalAlignment="Top" materialDesign:HintAssist.Hint="First food" Margin="10,10,0,0">
+        <ComboBox x:Name="NumberFoodCombo" Background="AliceBlue" Height="25" Width="126" HorizontalAlignment="Left" VerticalAlignment="Top" materialDesign:HintAssist.Hint="First food" Margin="10,10,0,0">
             <Label Content="First food"></Label>
             <Label Content="Second food"></Label>
             <Label Content="Dessert"></Label>
             <Label Content="Drinks"></Label>
         </ComboBox>
-        <ComboBox Background="AliceBlue" x:Name="NameEda" Height="25" Width="126" HorizontalAlignment="Left" VerticalAlignment="Top" materialDesign:HintAssist.Hint="" Margin="167,10,0,0">
+        <ComboBox Name="NameFoodCombo" Background="AliceBlue" Height="25" Width="126" HorizontalAlignment="Left" VerticalAlignment="Top" materialDesign:HintAssist.Hint="" Margin="167,10,0,0">
 
         </ComboBox>
-        <ComboBox Background="AliceBlue" x:Name="TimeEda" Height="26" Width="126" HorizontalAlignment="Left" VerticalAlignment="Top" materialDesign:HintAssist.Hint="Choice time" Margin="379,53,0,0">
+        <ComboBox Background="AliceBlue" x:Name="TimeEdaCombo" Height="26" Width="126" HorizontalAlignment="Left" VerticalAlignment="Top" materialDesign:HintAssist.Hint="Choice time" Margin="342,10,0,0">
             <Label Content="Breakfast (6:00-9:00)"></Label>
             <Label Content="Late Breakfast (9:00-12:00)"></Label>
             <Label Content="Lunch (12:00-14:00)"></Label>
@@ -27,29 +27,22 @@
             <Label Content="Late Supper (21:00-23:00)"></Label>
             <Label Content="Uber Late Supper (00:24)"></Label>
         </ComboBox>
-        <Image x:Name="Images" HorizontalAlignment="Left" Height="259" Margin="10,163,0,0" VerticalAlignment="Top" Width="356" Source="/фон2.jpg"></Image>
-        <Label BorderThickness="1" BorderBrush="Black" Background="AliceBlue" Content="CALORIES: " HorizontalAlignment="Left" Margin="508,10,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label BorderThickness="1" BorderBrush="Black" Background="AliceBlue" Content="WATER: " HorizontalAlignment="Left" Margin="671,10,0,0" VerticalAlignment="Top" Width="119"/>
-        <Button Background="#4B752B" BorderBrush="Black" x:Name="AddEDA" Content="ADD" HorizontalAlignment="Left" Margin="600,328,0,0" VerticalAlignment="Top" Height="72" Width="73"/>
-        <Label BorderThickness="1" BorderBrush="Black" Background="AliceBlue" Content="Total calories: " HorizontalAlignment="Left" Margin="404,328,0,0" VerticalAlignment="Top" Width="164"/>
-        <Label BorderThickness="1" BorderBrush="Black" Background="AliceBlue" Content="Allowable calories: " HorizontalAlignment="Left" Margin="405,374,0,0" VerticalAlignment="Top" Width="163"/>
-        <Label BorderThickness="1" BorderBrush="Black" Background="AliceBlue" Content="INF EDA " HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Width="356" Height="88" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Bottom">
+        <Image x:Name="ImagesEda" HorizontalAlignment="Left" Height="259" Margin="10,163,0,0" VerticalAlignment="Top" Width="356" Source="/фон2.jpg"></Image>
+        <Label x:Name="CaloriesLabel" BorderThickness="1" BorderBrush="Black" Background="AliceBlue" Content="CALORIES: " HorizontalAlignment="Left" Margin="508,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="WaterLabel" BorderThickness="1" BorderBrush="Black" Background="AliceBlue" Content="WATER: " HorizontalAlignment="Left" Margin="671,10,0,0" VerticalAlignment="Top" Width="119"/>
+        <Button x:Name="AddFoodButton" Background="#4B752B" BorderBrush="Black" Content="ADD" HorizontalAlignment="Left" Margin="600,328,0,0" VerticalAlignment="Top" Height="72" Width="73" Click="AddFoodButton_Click"/>
+        <Label x:Name="TotalCalLabel" BorderThickness="1" BorderBrush="Black" Background="AliceBlue" Content="Total calories: " HorizontalAlignment="Left" Margin="404,328,0,0" VerticalAlignment="Top" Width="164"/>
+        <Label x:Name="AllowCalLabel" BorderThickness="1" BorderBrush="Black" Background="AliceBlue" Content="Allowable calories: " HorizontalAlignment="Left" Margin="405,374,0,0" VerticalAlignment="Top" Width="163"/>
+        <Label x:Name="OpisEdaLabel" BorderThickness="1" BorderBrush="Black" Background="AliceBlue" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="356" Height="81" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Top">
             <Label.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleY="-1"/>
+                    <ScaleTransform ScaleY="1"/>
                     <SkewTransform/>
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <materialDesign:TimePicker HorizontalAlignment="Left" Height="25"  MaxWidth="70" Margin="387,10,0,0" PreviewMouseLeftButtonDown="TimePicker_PreviewMouseLeftButtonDown" VerticalAlignment="Top">
-            <materialDesign:TimePicker.Resources>
-                <Style TargetType="TextBox">
-                    <Setter Property="IsReadOnly" Value="True" />
-                </Style>
-            </materialDesign:TimePicker.Resources>
-        </materialDesign:TimePicker>
         <materialDesign:RatingBar HorizontalAlignment="Left" Margin="568,163,0,0" VerticalAlignment="Top" Height="27" Width="123"/>
     </Grid>
 </Window>

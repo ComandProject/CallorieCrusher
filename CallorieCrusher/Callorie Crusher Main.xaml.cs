@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -94,7 +95,7 @@ namespace CallorieCrusher
     {
         public int id { get; set; }
         public string name { get; set; }
-        public string picture { get; set; }
+        public BitmapImage picture { get; set; }
         public string about { get; set; }
         public float bilok { get; set; }
         public float zhirok { get; set; }
@@ -107,7 +108,7 @@ namespace CallorieCrusher
         private async void filling()
         {
             Foods = new ObservableCollection<FoodClass>();
-            string connectionString = @"Data Source = HOME-PC; Initial Catalog = CalCrush; Trusted_Connection=True";
+            string connectionString = @"Data Source = DESKTOP-JA41I9L; Initial Catalog = CalCrush; Trusted_Connection=True";
             string catall = "SELECT * FROM Food";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -123,14 +124,20 @@ namespace CallorieCrusher
                     {
                         object id_ = reader.GetValue(0);
                         object name_ = reader.GetValue(1);
-                        object picture_ = reader.GetValue(2);
+                        byte[] Images = (byte[])reader.GetValue(2);
+                        Stream StreamObj = new MemoryStream(Images);
+                        BitmapImage BitObj = new BitmapImage();
+                        BitObj.BeginInit();
+                        BitObj.StreamSource = StreamObj;
+                        BitObj.EndInit();
+                        
                         object about_ = reader.GetValue(3);
                         object bilok_ = reader.GetValue(4);
                         object zhirok_ = reader.GetValue(5);
                         object uglevodi_ = reader.GetValue(6);
                         object cal_ = reader.GetValue(7);
                         object water_ = reader.GetValue(8);
-                        Foods.Add(new FoodClass() { id = Convert.ToInt32(id_), name = name_.ToString(), about = about_.ToString(), bilok = float.Parse(bilok_.ToString(), CultureInfo.InvariantCulture.NumberFormat), zhirok = float.Parse(zhirok_.ToString(), CultureInfo.InvariantCulture.NumberFormat), uglevodi = float.Parse(uglevodi_.ToString(), CultureInfo.InvariantCulture.NumberFormat), cal = float.Parse(cal_.ToString(), CultureInfo.InvariantCulture.NumberFormat), water = float.Parse(water_.ToString(), CultureInfo.InvariantCulture.NumberFormat) });
+                        Foods.Add(new FoodClass() { id = Convert.ToInt32(id_), name = name_.ToString(), picture = BitObj, about = about_.ToString(), bilok = float.Parse(bilok_.ToString(), CultureInfo.InvariantCulture.NumberFormat), zhirok = float.Parse(zhirok_.ToString(), CultureInfo.InvariantCulture.NumberFormat), uglevodi = float.Parse(uglevodi_.ToString(), CultureInfo.InvariantCulture.NumberFormat), cal = float.Parse(cal_.ToString(), CultureInfo.InvariantCulture.NumberFormat), water = float.Parse(water_.ToString(), CultureInfo.InvariantCulture.NumberFormat) });
 
                     }
                     reader.Close();
@@ -236,7 +243,12 @@ namespace CallorieCrusher
                 TableWat.Height += 1;
             }
         }
-   
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DBFood dBFood = new DBFood();
+            dBFood.Show();
+        }
     }
 
 }

@@ -25,13 +25,9 @@ namespace CallorieCrusher
             InitializeComponent();
         }
 
-        private void TimePicker_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void AddFoodButton_Click(object sender, RoutedEventArgs e)
         {
-            var textBox = (sender as TimePicker)?.Template?.FindName("PART_TextBox", sender as TimePicker) as TextBox;
-            if (textBox != null && !textBox.IsReadOnly)
-            {
-                e.Handled = true;
-            }
+
         }
     }
 }

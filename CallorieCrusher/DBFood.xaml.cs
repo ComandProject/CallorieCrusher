@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using ControlzEx.Standard;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -21,30 +22,31 @@ namespace CallorieCrusher
     /// </summary>
     public partial class DBFood : Window
     {
+        private string connect = @"Data Source = DESKTOP-JA41I9L; Initial Catalog = CalCrush; Trusted_connection=True";
         public DBFood()
         {
             InitializeComponent();
+            FirstRadio.IsChecked = true;
         }
         string path = "";
+        private string imagePath = "";
         private void addpicbutton(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Images (*.png)|*.png|(*.jpeg)|*.jpeg";
-            if (openFileDialog.ShowDialog() != true)
-                return;
-            path = openFileDialog.FileName;
-            MessageBox.Show(path);
-            string picname = "";
-            foreach (char c in path)
+            openFileDialog.Filter = "Изображения (*.jpg, *.jpeg, *.png)|*.jpg;*.jpeg;*.png|Все файлы (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
             {
-                picname += c;
-                if (c == '\\')
-                    picname = "";
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(openFileDialog.FileName);
+                bitmap.EndInit();
+                picpath.Source = bitmap;
             }
-            picpath.Content = picname;
+            imagePath = ((BitmapImage)picpath.Source).UriSource.LocalPath;
+
         }
 
-        private async void createclick(object sender, RoutedEventArgs e)
+        private void createclick(object sender, RoutedEventArgs e)
         {
             #region checks
             if (nametxt.Text == "")
@@ -198,27 +200,46 @@ namespace CallorieCrusher
                 }
             }
             #endregion
-            if(picpath.Content == "")
+            if(nametxt.Text!="" && desctxt.Text!="" && prottxt.Text!="" && fattxt.Text!="" && carbtxt.Text!="" && watertxt.Text!="" && ccaltxt.Text!="")
             {
-                MessageBoxResult res = MessageBox.Show("Want to create a dish without picture?","Wait",MessageBoxButton.YesNo,MessageBoxImage.Information);
-                if (res == MessageBoxResult.No)
-                    return;
+                string strInsert = "INSERT INTO Food(Names, Picture, About, Bilok, Zhirok, Uglevodi, Cal, Water, FirstFood, SecondFood, Dessert, Drinks) ";
+                string strValues = "VALUES('" + nametxt.Text + "', " +
+                                   "(SELECT BulkColumn FROM Openrowset( Bulk '" + imagePath.ToString() + "', Single_Blob) as Image), '" +
+                                   desctxt.Text + "', " + prottxt.Text + ", " + fattxt.Text + ", " + carbtxt.Text + ", " + ccaltxt.Text + ", " + watertxt.Text + ", '" + FirstRadio.IsChecked.Value.ToString()+"', '" + SecondRadio.IsChecked.Value.ToString() + "', '" + DessertRadio.IsChecked.Value.ToString() + "', '" + DrinksRadio.IsChecked.Value.ToString() + "')";
+                using (SqlConnection connection = new SqlConnection(connect))
+                {
+                    string str2 = strInsert + strValues;
+                    MessageBox.Show(str2);
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(str2, connection);
+                    int num = command.ExecuteNonQuery();
+                }
+
+
+                Close();
+                //using (SqlConnection connection = new SqlConnection(connectionString))
+                //{
+                //    connection.Open();
+                //    SqlCommand command = new SqlCommand(add, connection);
+                //    int num = command.ExecuteNonQuery();
+                //}
+                //using (SqlConnection connection = new SqlConnection(connectionString))
+                //{
+                //    connection.Open();
+                //    SqlCommand command = new SqlCommand(add2, connection);
+                //    int num = command.ExecuteNonQuery();
             }
-            string connectionString = @"Data Source = DESKTOP-JA41I9L; Initial Catalog = CalCrush; Trusted_Connection=True";
-            string add = $"INSERT INTO Food(names,about,bilok,zhirok,uglevodi,cal,water) VALUES('{nametxt}','{desctxt}',{prottxt},{fattxt},{carbtxt},{ccaltxt},{watertxt})";
-            string add2 = $"UPDATE PictureProduct SET Picture =      (SELECT * FROM OPENROWSET(BULK N'{path}', SINGLE_BLOB) AS image)WHERE names = {nametxt}";
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            else
             {
-                await connection.OpenAsync();
-                SqlCommand command = new SqlCommand(add, connection);
-                int num = await command.ExecuteNonQueryAsync();
+                MessageBox.Show("Не все поля заполнены");
             }
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                await connection.OpenAsync();
-                SqlCommand command = new SqlCommand(add2, connection);
-                int num = await command.ExecuteNonQueryAsync();
-            }
+            //if(picpath.Content == "")
+            //{
+            //    MessageBoxResult res = MessageBox.Show("Want to create a dish without picture?","Wait",MessageBoxButton.YesNo,MessageBoxImage.Information);
+            //    if (res == MessageBoxResult.No)
+            //        return;
+            //}
+            
         }
 
         private void cancelclick(object sender, RoutedEventArgs e)

@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:CallorieCrusher"
         mc:Ignorable="d"
-        Title="Add Food" Height="380" Width="415"
+        Title="Add Food" Height="491" Width="415"
         Background="#D9F0C7">
     <Grid>
         <StackPanel>
@@ -21,8 +21,16 @@
                 <TextBox Name="watertxt" FontFamily="Bodoni MT" Width="86" materialDesign:HintAssist.Hint="Water" Margin="5,10,20,0"></TextBox>
             </StackPanel>
             <TextBox Name="ccaltxt" FontFamily="Bodoni MT" materialDesign:HintAssist.Hint="Enter ccal by 100g..." Margin="20,10,20,0"></TextBox>
-            <Button x:Name="addpic" BorderBrush="Black" Background="#4B752B" FontFamily="Bodoni MT" FontSize="20"  Margin="20,10,20,0" Width="150" Content="Add picture" Click="addpicbutton"></Button>
-            <Label Name="picpath" Foreground="#4B752B" FontFamily="Bodoni MT" Margin="20,10,20,0" FontSize="22" Content="" HorizontalAlignment="Center"></Label>
+            
+            <StackPanel Margin="0,10,0,10" Orientation="Horizontal" HorizontalAlignment="Center">
+                <RadioButton x:Name="FirstRadio" Content="First Food"></RadioButton>
+                <RadioButton x:Name="SecondRadio" Margin="10,0,0,0" Content="Second Food"></RadioButton>
+                <RadioButton x:Name="DessertRadio" Margin="10,0,0,0" Content="Dessert"></RadioButton>
+                <RadioButton x:Name="DrinksRadio" Margin="10,0,0,0" Content="Drinks"></RadioButton>
+            </StackPanel>
+            
+            <Button x:Name="addpic" BorderBrush="Black" Background="#4B752B" FontFamily="Bodoni MT" FontSize="20" Width="150" Content="Add picture" Click="addpicbutton"/>
+            <Image x:Name="picpath" Width="180"  Height="130" Margin="15"/>
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="create" BorderBrush="Black" Background="#4B752B" Width="100" FontFamily="Bodoni MT" FontSize="20" Content="Create" Margin="20,10,0,0" Click="createclick"></Button>
                 <Button x:Name="cancel" BorderBrush="Black" Background="#FF750000" Width="100" FontFamily="Bodoni MT" FontSize="20" Content="Cancel" Margin="160,10,20,0" Click="cancelclick"></Button>
