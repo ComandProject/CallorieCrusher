@@ -82,6 +82,9 @@
     <Compile Include="Callorie Crusher Main.xaml.cs">
       <DependentUpon>Callorie Crusher Main.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DBFood.xaml.cs">
+      <DependentUpon>DBFood.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SingIn.xaml.cs">
       <DependentUpon>SingIn.xaml</DependentUpon>
     </Compile>
@@ -89,6 +92,10 @@
       <DependentUpon>WindowAddFood.xaml</DependentUpon>
     </Compile>
     <Page Include="Callorie Crusher Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DBFood.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

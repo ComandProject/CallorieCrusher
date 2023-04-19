@@ -80,7 +80,7 @@
                 <ListBox Height="400" FontSize="18" BorderBrush="White" Background="White"/>
                 <Button x:Name="addFood" Height="90" Background="#FF3AB742" Width="618" BorderThickness="2" BorderBrush="Black" Content="EDA.pp 🍽 🍔 🍤 🍨 🍩 🍻" FontSize="40" Foreground="#FF042B11" Click="addFood_Click"/>
             </StackPanel>
-            <Button Width="100" Height="30" Margin="-100,570,0,0" Background="#FF750000" BorderBrush="red" Content="EXIT" Foreground="WHITE"/>
+            <Button Width="100" Height="30" Margin="-100,570,0,0" Background="#FF750000" BorderBrush="red" Content="EXIT" Foreground="WHITE" Cursor="Hand"/>
         </StackPanel>
 
 

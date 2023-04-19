@@ -27,6 +27,8 @@ namespace CallorieCrusher
         public MainWindow()
         {
             InitializeComponent();
+            DBFood db = new DBFood();
+            db.Show();
             
         }
 
