@@ -31,6 +31,7 @@ namespace CallorieCrusher
             timer.Tick += timer_Tick;
             timer.Start();
             filling();
+            ResultsTable();
         }
         private void timer_Tick(object sender, EventArgs e)
         {
