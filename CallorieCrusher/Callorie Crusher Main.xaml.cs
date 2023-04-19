@@ -130,6 +130,55 @@ namespace CallorieCrusher
             }
 
         }
+        void ResultsTable()
+        {
+            double ResAll = 0;
+            //    string connect = @"Data Source = HOME-PC; Initial Catalog = CalCrush; Trusted_connection=True";
+            //string sqlExpression = "SELECT * FROM Registr";
+            //    WindowAddFood addFood= new WindowAddFood();
+            //    using (SqlConnection connection = new SqlConnection(connect))
+            //    {
+
+            //        try
+            //        {
+            //            connection.Open();
+            //            SqlCommand command = new SqlCommand(sqlExpression, connection);
+            //            SqlDataReader reader = command.ExecuteReader();
+
+            //            if (reader.HasRows)
+            //            {
+            //                while (reader.Read())
+            //                {
+            //                    object nik = reader.GetValue(1);
+            //                    if (addFood.NameEda.Text.ToString() != "")
+            //                    {
+            //                        if (addFood.NameEda.Text.ToLower() == nik.ToString().ToLower())
+            //                        {
+            //                            double BilokRes = Convert.ToDouble(reader.GetValue(5));
+            //                            double ZhirokRes = Convert.ToDouble(reader.GetValue(6));
+            //                            double UglevodRes = Convert.ToDouble(reader.GetValue(7));
+            //                            double WaterRes = Convert.ToDouble(reader.GetValue(9));
+            //                            ResAll = BilokRes + ZhirokRes + UglevodRes + WaterRes;
+            //                            nProtein.Content = $"{(BilokRes * 100) / ResAll}";
+            //                        }
+            //                    }
+            //                }
+            //            }
+            //        }
+            //        catch (Exception e) { MessageBox.Show(e.Message); };
+            //    }
+            double BilokRes = 22;
+            double ZhirokRes = 33;
+            double UglevodRes = 44;
+            double WaterRes = 55;
+            ResAll = BilokRes + ZhirokRes + UglevodRes + WaterRes;
+            nProtein.Content = $"{Convert.ToInt32((BilokRes * 100) / ResAll)} %";
+            TableProt.Height = ((529 * 90) / 100);
+            TableFat.Height = ((529 * 30) / 100);
+            TableCarb.Height = ((529 * 10) / 100);
+            TableWat.Height = ((529 * 60) / 100);
+        }
+
     }
-   
+
 }
