@@ -26,9 +26,7 @@ namespace CallorieCrusher
         string sqlExpression = "SELECT * FROM Registr";
         public MainWindow()
         {
-            InitializeComponent();
-            DBFood db = new DBFood();
-            db.Show();
+            InitializeComponent();            
             
         }
 

@@ -46,34 +46,29 @@
         </StackPanel>
         <StackPanel x:Name="Page1" Height="644" VerticalAlignment="Top" Margin="0,60,0,0" Orientation="Horizontal" Visibility="Hidden" Background="#D9F0C7">
             <StackPanel Orientation="Horizontal" Width="600" Height="600"  Margin="13,0,0,0">
-                <StackPanel Orientation="Vertical" Margin="15,0,0,0">
-                    <Label Width="130" Height="300" VerticalAlignment="Bottom" Margin="0,264,0,0" Background="red"/>
-                    <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="0,-531,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
-                    <Label Content="Proteins" Width="100" Height="30" Margin="0,0,0,0" Padding="20,0,0,0" FontSize="16"/>
-                    <Label Content="n %" Width="100" Height="30" Margin="0,-650,0,0" Padding="34,0,0,0" FontSize="20"/>
-                    <Label Content="*g/*g" Width="100" Height="30" Margin="0,-590,0,0" Padding="20,0,0,0" FontSize="20" VerticalAlignment="Top"/>
-                </StackPanel>
-                <StackPanel>
-                    <Label Width="130" Height="529" VerticalAlignment="Bottom" Margin="15,34,0,0" Background="Yellow"/>
-                    <Label Width="132" Height="531" Margin="15,-531,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
-                    <Label Content="Fats" Width="100" Height="30" Margin="0,0,0,0" Padding="40,0,0,0" FontSize="16"/>
-                    <Label Content="n %" Width="100" Height="30" Margin="0,-650,0,0" Padding="34,0,0,0" FontSize="20"/>
-                    <Label Content="*g/*g" Width="100" Height="30" Margin="20,-590,0,0" Padding="20,0,0,0" FontSize="20" VerticalAlignment="Top"/>
-                </StackPanel>
-                <StackPanel>
-                    <Label Width="130" Height="500" VerticalAlignment="Bottom" Margin="15,63,0,1" Background="Green"/>
-                    <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="15,-531,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
-                    <Label Content="Carbs" Width="100" Height="30" Margin="0,0,0,0" Padding="35,0,0,0" FontSize="16"/>
-                    <Label Content="n %" Width="100" Height="30" Margin="0,-650,0,0" Padding="34,0,0,0" FontSize="20"/>
-                    <Label Content="*g/*g" Width="100" Height="30" Margin="20,-590,0,0" Padding="20,0,0,0" FontSize="20" VerticalAlignment="Top"/>
-                </StackPanel>
-                <StackPanel>
-                    <Label Width="130" Height="200" VerticalAlignment="Bottom" Margin="15,360,0,1" Background="Orange"/>
-                    <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="15,-531,0,0" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
-                    <Label Content="Water" Width="100" Height="30" Margin="0,0,0,0" Padding="35,0,0,0" FontSize="16"/>
-                    <Label Content="n %" Width="100" Height="30" Margin="0,-640,0,0" Padding="34,0,0,0" FontSize="20"/>
-                    <Label Content="*L/*L" Width="100" Height="30" Margin="20,-590,0,0" Padding="20,0,0,0" FontSize="20" VerticalAlignment="Top"/>
-                </StackPanel>
+                <Label x:Name="TableProt" Width="130" Height="213" VerticalAlignment="Bottom" Margin="10,0,0,30" Background="red" MaxHeight="529"/>
+                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="-130,0,0,30" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
+                <Label Content="Proteins" Width="100" Height="30" Margin="-130,0,0,-570" Padding="20,0,0,0" FontSize="16"/>
+                <Label x:Name="nProtein" Content=" %" Width="100" Height="30" Margin="-130,0,0,0" Padding="25,0,0,0" FontSize="20"/>
+                <Label Content="*g/*g" Width="100" Height="30" Margin="-130,0,0,0" Padding="20,0,0,0" FontSize="20" VerticalAlignment="Top"/>
+
+                <Label x:Name="TableFat" Width="130" Height="213" VerticalAlignment="Bottom" Margin="20,0,0,30" Background="Yellow" MaxHeight="529"/>
+                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="-130,0,0,30" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
+                <Label Content="Fats" Width="100" Height="30" Margin="-130,0,0,-570" Padding="35,0,0,0" FontSize="16"/>
+                <Label Content=" %" Width="100" Height="30" Margin="-130,0,0,0" Padding="25,0,0,0" FontSize="20"/>
+                <Label Content="*g/*g" Width="100" Height="30" Margin="-130,0,0,0" Padding="20,0,0,0" FontSize="20" VerticalAlignment="Top"/>
+
+                <Label x:Name="TableCarb" Width="130" Height="213" VerticalAlignment="Bottom" Margin="20,0,0,30" Background="Green" MaxHeight="529"/>
+                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="-130,0,0,30" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
+                <Label Content="Carbs" Width="100" Height="30" Margin="-130,0,0,-570" Padding="30,0,0,0" FontSize="16"/>
+                <Label Content=" %" Width="100" Height="30" Margin="-130,0,0,0" Padding="25,0,0,0" FontSize="20"/>
+                <Label Content="*g/*g" Width="100" Height="30" Margin="-130,0,0,0" Padding="20,0,0,0" FontSize="20" VerticalAlignment="Top"/>
+
+                <Label x:Name="TableWat" Width="130" Height="213" VerticalAlignment="Bottom" Margin="20,0,0,30" Background="DeepSkyBlue" MaxHeight="529"/>
+                <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="-130,0,0,30" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
+                <Label Content="Water" Width="100" Height="30" Margin="-130,0,0,-570" Padding="30,0,0,0" FontSize="16"/>
+                <Label Content=" %" Width="100" Height="30" Margin="-130,0,0,0" Padding="25,0,0,0" FontSize="20"/>
+                <Label Content="*L/*L" Width="100" Height="30" Margin="-130,0,0,0" Padding="20,0,0,0" FontSize="20" VerticalAlignment="Top"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Width="620" Height="530" Margin="13,0,0,0">
                 <Label Content="Meats today:" FontSize="18" Background="White"/>
