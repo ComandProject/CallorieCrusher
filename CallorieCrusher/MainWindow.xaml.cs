@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,7 +23,7 @@ namespace CallorieCrusher
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string connect = @"Data Source = DESKTOP-JA41I9L; Initial Catalog = CalCrush; Trusted_connection=True";
+        private string connect = @"Data Source = HOME-PC; Initial Catalog = CalCrush; Trusted_connection=True";
         string sqlExpression = "SELECT * FROM Registr";
         public MainWindow()
         {
@@ -42,13 +43,12 @@ namespace CallorieCrusher
         }
         private void ProverkaAutorization()
         {
-            
             if (login.Text == "" || PasswordLogina.Password.ToString() == "")
             {
                 MessageBox.Show("Поля не могут быть пустыми");
                 return;
             }
-            int kolProverka = 0;
+
             using (SqlConnection connection = new SqlConnection(connect))
             {
                 try
@@ -62,27 +62,43 @@ namespace CallorieCrusher
                         while (reader.Read())
                         {
                             object nik = reader.GetValue(1);
-                            object pass = reader.GetValue(2);
+                            object passHash = reader.GetValue(2);
 
                             if (login.Text.ToLower() == nik.ToString().ToLower())
                             {
-                                if (PasswordLogina.Password.ToString() != pass.ToString())
-                                {
-                                    MessageBox.Show("Incorrect Password, try again");
-                                }
-                                else
+                                string password = PasswordLogina.Password.ToString().ToLower();
+                                byte[] hashedPassword = HashPassword(password);
+                                byte[] storedPassword = Convert.FromBase64String(passHash.ToString()); // преобразование строки в массив байт
+
+                                if (hashedPassword.SequenceEqual(storedPassword))
                                 {
                                     MessageBox.Show("Successfully");
                                     Callorie_Crusher_Main ccm = new Callorie_Crusher_Main();
                                     ccm.Show();
                                     Close();
-                                    //reader.Close();
+                                    return;
                                 }
                             }
                         }
                     }
+                    MessageBox.Show("Incorrect Login or Password, try again");
                 }
-                catch (Exception e) { MessageBox.Show(e.Message); };
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+            }
+        }
+
+
+        private byte[] HashPassword(string password)
+        {
+            byte[] passwordBytes = Encoding.Unicode.GetBytes(password);
+
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] hash = sha256.ComputeHash(passwordBytes);
+                return hash;
             }
         }
     }

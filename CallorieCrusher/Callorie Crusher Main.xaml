@@ -46,28 +46,28 @@
         </StackPanel>
         <StackPanel x:Name="Page1" Height="644" VerticalAlignment="Top" Margin="0,60,0,0" Orientation="Horizontal" Visibility="Hidden" Background="#D9F0C7">
             <StackPanel Orientation="Horizontal" Width="600" Height="600"  Margin="13,0,0,0">
-                <Label x:Name="TableProt" Width="130" Height="213" VerticalAlignment="Bottom" Margin="10,0,0,30" Background="red" MaxHeight="529"/>
+                <Label x:Name="TableProt" Width="130" Height="2" VerticalAlignment="Bottom" Margin="10,0,0,30" Background="red" MaxHeight="529"/>
                 <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="-130,0,0,30" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
                 <Label Content="Proteins" Width="100" Height="30" Margin="-130,0,0,-570" Padding="20,0,0,0" FontSize="16"/>
                 <Label x:Name="nProtein" Content=" %" Width="100" Height="30" Margin="-130,0,0,0" Padding="25,0,0,0" FontSize="20"/>
                 <Label Content="*g/*g" Width="100" Height="30" Margin="-130,0,0,0" Padding="20,0,0,0" FontSize="20" VerticalAlignment="Top"/>
 
-                <Label x:Name="TableFat" Width="130" Height="213" VerticalAlignment="Bottom" Margin="20,0,0,30" Background="Yellow" MaxHeight="529"/>
+                <Label x:Name="TableFat" Width="130" Height="2" VerticalAlignment="Bottom" Margin="20,0,0,30" Background="red" MaxHeight="529"/>
                 <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="-130,0,0,30" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
                 <Label Content="Fats" Width="100" Height="30" Margin="-130,0,0,-570" Padding="35,0,0,0" FontSize="16"/>
-                <Label Content=" %" Width="100" Height="30" Margin="-130,0,0,0" Padding="25,0,0,0" FontSize="20"/>
+                <Label x:Name="nFat" Content=" %" Width="100" Height="30" Margin="-130,0,0,0" Padding="25,0,0,0" FontSize="20"/>
                 <Label Content="*g/*g" Width="100" Height="30" Margin="-130,0,0,0" Padding="20,0,0,0" FontSize="20" VerticalAlignment="Top"/>
 
-                <Label x:Name="TableCarb" Width="130" Height="213" VerticalAlignment="Bottom" Margin="20,0,0,30" Background="Green" MaxHeight="529"/>
+                <Label x:Name="TableCarb" Width="130" Height="2" VerticalAlignment="Bottom" Margin="20,0,0,30" Background="red" MaxHeight="529"/>
                 <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="-130,0,0,30" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
                 <Label Content="Carbs" Width="100" Height="30" Margin="-130,0,0,-570" Padding="30,0,0,0" FontSize="16"/>
-                <Label Content=" %" Width="100" Height="30" Margin="-130,0,0,0" Padding="25,0,0,0" FontSize="20"/>
+                <Label x:Name="nCarb" Content=" %" Width="100" Height="30" Margin="-130,0,0,0" Padding="25,0,0,0" FontSize="20"/>
                 <Label Content="*g/*g" Width="100" Height="30" Margin="-130,0,0,0" Padding="20,0,0,0" FontSize="20" VerticalAlignment="Top"/>
 
-                <Label x:Name="TableWat" Width="130" Height="213" VerticalAlignment="Bottom" Margin="20,0,0,30" Background="DeepSkyBlue" MaxHeight="529"/>
+                <Label x:Name="TableWat" Width="130" Height="2" VerticalAlignment="Bottom" Margin="20,0,0,30" Background="DeepSkyBlue" MaxHeight="529"/>
                 <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="-130,0,0,30" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
                 <Label Content="Water" Width="100" Height="30" Margin="-130,0,0,-570" Padding="30,0,0,0" FontSize="16"/>
-                <Label Content=" %" Width="100" Height="30" Margin="-130,0,0,0" Padding="25,0,0,0" FontSize="20"/>
+                <Label x:Name="nWat" Content=" %" Width="100" Height="30" Margin="-130,0,0,0" Padding="25,0,0,0" FontSize="20"/>
                 <Label Content="*L/*L" Width="100" Height="30" Margin="-130,0,0,0" Padding="20,0,0,0" FontSize="20" VerticalAlignment="Top"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Width="620" Height="530" Margin="13,0,0,0">
@@ -80,7 +80,7 @@
 
 
 
-        <StackPanel x:Name="Page2" Background="#D9F0C7" Height="629" VerticalAlignment="Top" Margin="0,65,0,0" Orientation="Vertical" Visibility="Visible">
+        <StackPanel x:Name="Page2" Background="#D9F0C7" Height="629" VerticalAlignment="Top" Margin="0,65,0,0" Orientation="Vertical" Visibility="Hidden">
             <StackPanel Orientation="Horizontal" Height="50" Margin="0,25,0,0">
                 <TextBox x:Name="Search" Width="650" Height="30" Margin="20,0,0,0" Text="Пошук" FontSize="18" Padding="0,0,0,0" PreviewMouseLeftButtonDown="TextBox_PreviewMouseLeftButtonDown"/>
                 <Button Height="30" Width="30" Content="🔍" Background="Transparent" Foreground="#DD000000" FontSize="14" Padding="0,0,0,0" BorderThickness="0"/>
@@ -128,7 +128,15 @@
             <StackPanel  Height="450" Orientation="Horizontal" HorizontalAlignment="Center">
                 <Label Content="Marth - 12                         69,1 кг     ⬇  &#xD;&#xA;Marth - 12                         69,1 кг     ⬆ " Width="600" Height="430" Background="White" FontSize="35" Padding="0,0,0,0"/>
                 <StackPanel Width="600" Height="430" Margin="30,0,0,0" Background="White">
-                    <Line X1="0" Y1="300" X2="600" Y2="150" Stroke="Green" StrokeThickness="3" />
+                    <Polyline Stroke="Green" StrokeThickness="3" >
+                        <Polyline.Points>
+                            <Point X="0" Y="300"/>
+                            <Point X="150" Y="430"/>
+                            <Point X="300" Y="200"/>
+                            <Point X="450" Y="300"/>
+                            <Point X="600" Y="430"/>
+                        </Polyline.Points>
+                    </Polyline>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

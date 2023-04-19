@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,7 +21,7 @@ namespace CallorieCrusher
     /// </summary>
     public partial class SingIn : Window
     {
-        private string connect = @"Data Source = DESKTOP-JA41I9L; Initial Catalog = CalCrush; Trusted_connection=True";
+        private string connect = @"Data Source = HOME-PC; Initial Catalog = CalCrush; Trusted_connection=True";
         string sqlExpression = "SELECT * FROM Registr";
         private string str = "";
         public SingIn()
@@ -31,7 +32,7 @@ namespace CallorieCrusher
 
         private void RegiButton_Click(object sender, RoutedEventArgs e)
         {
-            if(LogInBox.Text == "" || PassBox.ToString() == "" || WeightBox.Text == "" || desiredweightBox.Text == "")
+            if (LogInBox.Text == "" || PassBox.Password == "" || WeightBox.Text == "" || desiredweightBox.Text == "")
             {
                 MessageBox.Show("Поля не могут быть пустыми");
                 return;
@@ -42,16 +43,40 @@ namespace CallorieCrusher
             }
         }
 
+        private byte[] GenerateSalt()
+        {
+            byte[] saltBytes = new byte[32];
+            using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
+            {
+                rng.GetBytes(saltBytes);
+            }
+            return saltBytes;
+        }
+
         private void Registr()
         {
+            byte[] hashedPassword = HashPassword(PassBox.Password);
+            string hashedPasswordString = Convert.ToBase64String(hashedPassword);
+
             using (SqlConnection connection = new SqlConnection(connect))
             {
-                string str2 = str + "VALUES('" + LogInBox.Text + "', '" + PassBox.Password.ToString() + "', " + WeightBox.Text + ", '" + growRadio.IsChecked.Value.ToString() + "', '" + loseRadio.IsChecked.Value.ToString() + "', '" + stayRadio.IsChecked.Value.ToString() + "', " + desiredweightBox.Text + ")";
+                string str2 = str + "VALUES('" + LogInBox.Text + "', '" + hashedPasswordString + "', " + WeightBox.Text + ", '" + growRadio.IsChecked.Value.ToString() + "', '" + loseRadio.IsChecked.Value.ToString() + "', '" + stayRadio.IsChecked.Value.ToString() + "', " + desiredweightBox.Text + ")";
                 connection.Open();
                 SqlCommand command = new SqlCommand(str2, connection);
                 int num = command.ExecuteNonQuery();
 
                 Close();
+            }
+        }
+
+        private byte[] HashPassword(string password)
+        {
+            byte[] passwordBytes = Encoding.Unicode.GetBytes(password);
+
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] hash = sha256.ComputeHash(passwordBytes);
+                return hash;
             }
         }
         private void ProverkaRegi()
@@ -61,6 +86,7 @@ namespace CallorieCrusher
                 MessageBox.Show("Поля не могут быть пустыми");
                 return;
             }
+
             int kolProverka = 0;
             using (SqlConnection connection = new SqlConnection(connect))
             {
@@ -82,19 +108,23 @@ namespace CallorieCrusher
                                 return;
                             }
                         }
-                        if (kolProverka > 0)
-                        {
-                            return;
-                        }
-                        else if (kolProverka == 0)
-                        {
-                            MessageBox.Show("Successfully");
-                            Registr();
-                        }
+
                         reader.Close();
                     }
+
+                    // Generate salt and hash password
+                    byte[] salt = GenerateSalt();
+                    byte[] hashedPassword = HashPassword(PassBox.Password.ToString());
+
+                    MessageBox.Show("Successfully");
+                    Registr();
+
+                    reader.Close();
                 }
-                catch (Exception e) { MessageBox.Show(e.Message); };
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
             }
         }
     }

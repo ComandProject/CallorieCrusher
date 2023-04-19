@@ -23,6 +23,11 @@ namespace CallorieCrusher
     /// </summary>
     public partial class Callorie_Crusher_Main : Window
     {
+        double ResAll = 0;
+        double BilokRes = 0;
+        double ZhirokRes = 0;
+        double UglevodRes = 0;
+        double WaterRes = 0;
         public Callorie_Crusher_Main()
         {
             InitializeComponent();
@@ -31,7 +36,10 @@ namespace CallorieCrusher
             timer.Tick += timer_Tick;
             timer.Start();
             filling();
-            ResultsTable();
+            DispatcherTimer timer1 = new DispatcherTimer();
+            timer1.Interval = TimeSpan.FromMilliseconds(0.5);
+            timer1.Tick += ResultsTable;
+            timer1.Start();
         }
         private void timer_Tick(object sender, EventArgs e)
         {
@@ -99,7 +107,7 @@ namespace CallorieCrusher
         private async void filling()
         {
             Foods = new ObservableCollection<FoodClass>();
-            string connectionString = @"Data Source = DESKTOP-JA41I9L; Initial Catalog = CalCrush; Trusted_Connection=True";
+            string connectionString = @"Data Source = HOME-PC; Initial Catalog = CalCrush; Trusted_Connection=True";
             string catall = "SELECT * FROM Food";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -131,55 +139,104 @@ namespace CallorieCrusher
             }
 
         }
-        void ResultsTable()
+        void ResultsTable(object sender, EventArgs e)
         {
-            double ResAll = 0;
-            //    string connect = @"Data Source = HOME-PC; Initial Catalog = CalCrush; Trusted_connection=True";
+
+            //string connect = @"Data Source = HOME-PC; Initial Catalog = CalCrush; Trusted_connection=True";
             //string sqlExpression = "SELECT * FROM Registr";
-            //    WindowAddFood addFood= new WindowAddFood();
-            //    using (SqlConnection connection = new SqlConnection(connect))
+            //WindowAddFood addFood = new WindowAddFood();
+            //using (SqlConnection connection = new SqlConnection(connect))
+            //{
+
+            //    try
             //    {
+            //        connection.Open();
+            //        SqlCommand command = new SqlCommand(sqlExpression, connection);
+            //        SqlDataReader reader = command.ExecuteReader();
 
-            //        try
+            //        if (reader.HasRows)
             //        {
-            //            connection.Open();
-            //            SqlCommand command = new SqlCommand(sqlExpression, connection);
-            //            SqlDataReader reader = command.ExecuteReader();
-
-            //            if (reader.HasRows)
+            //            while (reader.Read())
             //            {
-            //                while (reader.Read())
+            //                object nik = reader.GetValue(1);
+            //                if (addFood.NameEda.Text.ToString() != "")
             //                {
-            //                    object nik = reader.GetValue(1);
-            //                    if (addFood.NameEda.Text.ToString() != "")
+            //                    if (addFood.NameEda.Text.ToLower() == nik.ToString().ToLower())
             //                    {
-            //                        if (addFood.NameEda.Text.ToLower() == nik.ToString().ToLower())
-            //                        {
-            //                            double BilokRes = Convert.ToDouble(reader.GetValue(5));
-            //                            double ZhirokRes = Convert.ToDouble(reader.GetValue(6));
-            //                            double UglevodRes = Convert.ToDouble(reader.GetValue(7));
-            //                            double WaterRes = Convert.ToDouble(reader.GetValue(9));
-            //                            ResAll = BilokRes + ZhirokRes + UglevodRes + WaterRes;
-            //                            nProtein.Content = $"{(BilokRes * 100) / ResAll}";
-            //                        }
+            //                        BilokRes += Convert.ToDouble(reader.GetValue(5));
+            //                        ZhirokRes += Convert.ToDouble(reader.GetValue(6));
+            //                        UglevodRes += Convert.ToDouble(reader.GetValue(7));
+            //                        WaterRes += Convert.ToDouble(reader.GetValue(9));
+            //                        nProtein.Content = $"{(BilokRes * 100) / 52}";
+            //                        nFat.Content = $"{(BilokRes * 100) / 55}";
+            //                        nCarb.Content = $"{(BilokRes * 100) / 97}";
+            //                        nWat.Content = $"{(WaterRes * 100) /2.4}";
             //                    }
             //                }
             //            }
             //        }
-            //        catch (Exception e) { MessageBox.Show(e.Message); };
             //    }
-            double BilokRes = 22;
-            double ZhirokRes = 33;
-            double UglevodRes = 44;
-            double WaterRes = 55;
-            ResAll = BilokRes + ZhirokRes + UglevodRes + WaterRes;
-            nProtein.Content = $"{Convert.ToInt32((BilokRes * 100) / ResAll)} %";
-            TableProt.Height = ((529 * 90) / 100);
-            TableFat.Height = ((529 * 30) / 100);
-            TableCarb.Height = ((529 * 10) / 100);
-            TableWat.Height = ((529 * 60) / 100);
-        }
+            //    catch (Exception i) { MessageBox.Show(i.Message); };
+            //}
 
+
+            //ResAll = BilokRes + ZhirokRes + UglevodRes + WaterRes;
+            //nProtein.Content = $"{Convert.ToInt32((BilokRes * 100) / ResAll)} %";
+
+            if (TableProt.Height <= Convert.ToInt32((529 * 90) / 100))
+            {
+                TableProt.Height += 1;
+                if (TableProt.Height>=0&& TableProt.Height<=176)
+                {
+                    TableProt.Background= new SolidColorBrush(Colors.Red);
+                }
+                else if (TableProt.Height >= 176 && TableProt.Height <= 352)
+                {
+                    TableProt.Background = new SolidColorBrush(Colors.Yellow);
+                }
+                else if (TableProt.Height >= 352 && TableProt.Height <= 529)
+                {
+                    TableProt.Background = new SolidColorBrush(Colors.Green);
+                }
+            }
+            if (TableFat.Height <= Convert.ToInt32((529 * 30) / 100))
+            {
+                TableFat.Height += 1;
+                if (TableFat.Height >= 0 && TableFat.Height <= 176)
+                {
+                    TableFat.Background = new SolidColorBrush(Colors.Red);
+                }
+                else if (TableFat.Height >= 176 && TableFat.Height <= 352)
+                {
+                    TableFat.Background = new SolidColorBrush(Colors.Yellow);
+                }
+                else if (TableFat.Height >= 352 && TableFat.Height <= 529)
+                {
+                    TableFat.Background = new SolidColorBrush(Colors.Green);
+                }
+            }
+            if (TableCarb.Height <= Convert.ToInt32((529 * 10) / 100))
+            {
+                TableCarb.Height += 1;
+                if (TableCarb.Height >= 0 && TableCarb.Height <= 176)
+                {
+                    TableCarb.Background = new SolidColorBrush(Colors.Red);
+                }
+                else if (TableCarb.Height >= 176 && TableCarb.Height <= 352)
+                {
+                    TableCarb.Background = new SolidColorBrush(Colors.Yellow);
+                }
+                else if (TableCarb.Height >= 352 && TableCarb.Height <= 529)
+                {
+                    TableCarb.Background = new SolidColorBrush(Colors.Green);
+                }
+            }
+            if (TableWat.Height <= Convert.ToInt32((529 * 60) / 100))
+            {
+                TableWat.Height += 1;
+            }
+        }
+   
     }
 
 }
