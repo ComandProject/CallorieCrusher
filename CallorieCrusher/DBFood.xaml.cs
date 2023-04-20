@@ -22,10 +22,12 @@ namespace CallorieCrusher
     /// </summary>
     public partial class DBFood : Window
     {
+        private readonly Callorie_Crusher_Main _CalCrushMain;
         private string connect = @"Data Source = USER-PC50; Initial Catalog = CalCrush; Trusted_Connection=True";
-        public DBFood()
+        public DBFood(Callorie_Crusher_Main CalCrushMain)
         {
             InitializeComponent();
+            _CalCrushMain = CalCrushMain;
             FirstRadio.IsChecked = true;
         }
         string path = "";
@@ -246,6 +248,12 @@ namespace CallorieCrusher
         {
             Owner.Show();
             Close();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            _CalCrushMain.Foods.Clear();
+            _CalCrushMain.filling();
         }
     }
 }

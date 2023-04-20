@@ -39,8 +39,34 @@ namespace CallorieCrusher
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            int check = 0;
             ProverkaAutorization();
+            using (SqlConnection connection = new SqlConnection(connect))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+
+                if (reader.HasRows)
+                {
+
+                    while (reader.Read())
+                    {
+                        object nik = reader.GetValue(1);
+                        if (login.Text.ToLower() == nik.ToString().ToLower())
+                        {
+                            check = Convert.ToInt32(reader.GetValue(0));
+                            Cjntainer.Id = Convert.ToString(check);
+                        }
+                    }
+                    reader.Close();
+                }
+            }
+
         }
+
         private void ProverkaAutorization()
         {
             if (login.Text == "" || PasswordLogina.Password.ToString() == "")

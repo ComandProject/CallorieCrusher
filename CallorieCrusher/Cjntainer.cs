@@ -11,5 +11,6 @@ namespace CallorieCrusher
         static public string name = "";
         static public string time = "";
         static public string weight = "";
+        static public string Id = "";
     }
 }

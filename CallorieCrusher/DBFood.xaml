@@ -7,10 +7,14 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:CallorieCrusher"
         mc:Ignorable="d"
-        Title="Add Food" Height="491" Width="415"
-        Background="#D9F0C7">
+        Title="Add Food" Height="510" Width="415"
+        Background="#D9F0C7" Closed="Window_Closed">
     <Grid>
-        <StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="92*"/>
+            <ColumnDefinition Width="323*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="2">
             <Label Content="Adding" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#4B752B" FontFamily="Bodoni MT" FontSize="42"></Label>
             <TextBox Name="nametxt" FontFamily="Bodoni MT" materialDesign:HintAssist.Hint="Enter new name..." Margin="20,10,20,0"></TextBox>
             <TextBox Name="desctxt" FontFamily="Bodoni MT" materialDesign:HintAssist.Hint="Enter describe..." Margin="20,10,20,0"></TextBox>
@@ -21,14 +25,14 @@
                 <TextBox Name="watertxt" FontFamily="Bodoni MT" Width="86" materialDesign:HintAssist.Hint="Water" Margin="5,10,20,0"></TextBox>
             </StackPanel>
             <TextBox Name="ccaltxt" FontFamily="Bodoni MT" materialDesign:HintAssist.Hint="Enter ccal by 100g..." Margin="20,10,20,0"></TextBox>
-            
+
             <StackPanel Margin="0,10,0,10" Orientation="Horizontal" HorizontalAlignment="Center">
                 <RadioButton x:Name="FirstRadio" Content="First Food"></RadioButton>
                 <RadioButton x:Name="SecondRadio" Margin="10,0,0,0" Content="Second Food"></RadioButton>
                 <RadioButton x:Name="DessertRadio" Margin="10,0,0,0" Content="Dessert"></RadioButton>
                 <RadioButton x:Name="DrinksRadio" Margin="10,0,0,0" Content="Drinks"></RadioButton>
             </StackPanel>
-            
+
             <Button x:Name="addpic" BorderBrush="Black" Background="#4B752B" FontFamily="Bodoni MT" FontSize="20" Width="150" Content="Add picture" Click="addpicbutton"/>
             <Image x:Name="picpath" Width="180"  Height="130" Margin="15"/>
             <StackPanel Orientation="Horizontal">

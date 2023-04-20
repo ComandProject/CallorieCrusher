@@ -4,14 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CallorieCrusher"
-        xmlns:controlzex="urn:controlzex" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="CallorieCrusher.Callorie_Crusher_Main"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="CallorieCrusher.Callorie_Crusher_Main"
         mc:Ignorable="d"
         Title="Callorie_Crusher_Main" Height="730" Width="1280"
         Background="#D9F0C7">
     <Window.Resources>
         <DataTemplate x:Key="FoodTempalte">
             <Border BorderBrush="#473366" BorderThickness="1">
-                <StackPanel Width="300">
+                <StackPanel Width="285">
                     <Image Width="150" Height="150"  Source="{Binding Path=picture}"/>
                     <Rectangle Height="1" Width="150" Fill="#4B752B"></Rectangle>
                     <TextBlock TextWrapping="Wrap" FontFamily="Bodoni MT" FontSize="22" Text="{Binding Path=name}" HorizontalAlignment="Left" TextAlignment="Center"/>
@@ -41,34 +42,34 @@
         <StackPanel Orientation="Horizontal" Height="60" VerticalAlignment="Top" Background="White">
             <Button BorderThickness="2" Height="45" Content="Main" FontSize="32" Foreground="White" Background="#4B752B" FontFamily="Bodoni MT" x:Name="osnova" Width="150" Margin="15,5,0,5" Click="osnova_Click" BorderBrush="Black" Cursor="Hand"/>
             <Button BorderThickness="2" Height="45" Content="Food" FontSize="32" Foreground="White" Background="#4B752B" FontFamily="Bodoni MT" x:Name="food" Width="150" Margin="15,5,0,5" Click="food_Click" BorderBrush="Black"/>
-            <Button BorderThickness="2" Height="45" Content="Calendar" FontSize="32" Foreground="White" Background="#4B752B" FontFamily="Bodoni MT" x:Name="calendar" Width="150" Margin="15,5,0,5" Click="calendar_Click" BorderBrush="Black"/>
+            <!--<Button BorderThickness="2" Height="45" Content="Calendar" FontSize="32" Foreground="White" Background="#4B752B" FontFamily="Bodoni MT" x:Name="calendar" Width="150" Margin="15,5,0,5" Click="calendar_Click" BorderBrush="Black"/>-->
             <Button BorderThickness="2" Height="45" Content="Stats" FontSize="32" Foreground="White" Background="#4B752B" FontFamily="Bodoni MT" x:Name="stats" Width="150" Margin="15,5,0,5" Click="stats_Click" BorderBrush="Black"/>
-            <Label x:Name="timelabel" FontSize="32" Width="390" Foreground="#4B752B"  FontFamily="Bodoni MT" Margin="270,0,0,0" Padding="0,10,0,0"/>
+            <Label x:Name="timelabel" FontSize="32" Width="390" Foreground="#4B752B" FontFamily="Bodoni MT" Margin="370,0,0,0" Padding="0,10,0,0"/>
         </StackPanel>
-        <StackPanel x:Name="Page1" Height="644" VerticalAlignment="Top" Margin="0,60,0,0" Orientation="Horizontal" Visibility="Visible" Background="#D9F0C7">
+        <StackPanel x:Name="Page1" Height="644" VerticalAlignment="Top" Margin="0,60,0,0" Orientation="Horizontal" Visibility="Hidden" Background="#D9F0C7">
             <StackPanel Orientation="Horizontal" Width="600" Height="600"  Margin="13,0,0,0">
                 <Label x:Name="TableProt" Width="130" Height="2" VerticalAlignment="Bottom" Margin="10,0,0,30" Background="red" MaxHeight="529"/>
                 <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="-130,0,0,30" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
                 <Label Content="Proteins" Width="100" Height="30" Margin="-130,0,0,-570" Padding="20,0,0,0" FontSize="16"/>
-                <Label x:Name="nProtein" Content=" %" Width="100" Height="30" Margin="-130,0,0,0" Padding="25,0,0,0" FontSize="20"/>
+                <Label x:Name="nProtein" Content=" 0%" Width="100" Height="30" Margin="-130,0,0,0" Padding="25,0,0,0" FontSize="20"/>
                 <Label Name="protlbl" Content="*g/*g" Width="100" Height="30" Margin="-130,0,0,0" Padding="20,0,0,0" FontSize="20" VerticalAlignment="Top"/>
 
                 <Label x:Name="TableFat" Width="130" Height="2" VerticalAlignment="Bottom" Margin="20,0,0,30" Background="red" MaxHeight="529"/>
                 <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="-130,0,0,30" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
                 <Label Content="Fats" Width="100" Height="30" Margin="-130,0,0,-570" Padding="35,0,0,0" FontSize="16"/>
-                <Label x:Name="nFat" Content=" %" Width="100" Height="30" Margin="-130,0,0,0" Padding="25,0,0,0" FontSize="20"/>
+                <Label x:Name="nFat" Content=" 0%" Width="100" Height="30" Margin="-130,0,0,0" Padding="25,0,0,0" FontSize="20"/>
                 <Label Name="fatlbl" Content="*g/*g" Width="100" Height="30" Margin="-130,0,0,0" Padding="20,0,0,0" FontSize="20" VerticalAlignment="Top"/>
 
                 <Label x:Name="TableCarb" Width="130" Height="2" VerticalAlignment="Bottom" Margin="20,0,0,30" Background="red" MaxHeight="529"/>
                 <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="-130,0,0,30" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
                 <Label Content="Carbs" Width="100" Height="30" Margin="-130,0,0,-570" Padding="30,0,0,0" FontSize="16"/>
-                <Label x:Name="nCarb" Content=" %" Width="100" Height="30" Margin="-130,0,0,0" Padding="25,0,0,0" FontSize="20"/>
+                <Label x:Name="nCarb" Content=" 0%" Width="100" Height="30" Margin="-130,0,0,0" Padding="25,0,0,0" FontSize="20"/>
                 <Label Name="carblbl" Content="*g/*g" Width="100" Height="30" Margin="-130,0,0,0" Padding="20,0,0,0" FontSize="20" VerticalAlignment="Top"/>
 
                 <Label x:Name="TableWat" Width="130" Height="2" VerticalAlignment="Bottom" Margin="20,0,0,30" Background="DeepSkyBlue" MaxHeight="529"/>
                 <Label Width="132" Height="531" VerticalAlignment="Bottom" Margin="-130,0,0,30" Background="Transparent" BorderBrush="Black" BorderThickness="2"/>
                 <Label Content="Water" Width="100" Height="30" Margin="-130,0,0,-570" Padding="30,0,0,0" FontSize="16"/>
-                <Label x:Name="nWat" Content=" %" Width="100" Height="30" Margin="-130,0,0,0" Padding="25,0,0,0" FontSize="20"/>
+                <Label x:Name="nWat" Content=" 0%" Width="100" Height="30" Margin="-130,0,0,0" Padding="25,0,0,0" FontSize="20"/>
                 <Label Name="waterlbl" Content="*L/*L" Width="100" Height="30" Margin="-130,0,0,0" Padding="20,0,0,0" FontSize="20" VerticalAlignment="Top"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Width="620" Height="530" Margin="13,0,0,0">
@@ -83,10 +84,10 @@
 
         <StackPanel x:Name="Page2" Height="629" VerticalAlignment="Top" Margin="0,65,0,0" Orientation="Vertical" Visibility="Hidden">
             <StackPanel Orientation="Horizontal" Height="50" Margin="0,25,0,0">
-                <TextBox x:Name="Search" Width="650" Height="30" Margin="20,0,0,0" Text="Пошук" FontSize="18" Padding="0,0,0,0" PreviewMouseLeftButtonDown="TextBox_PreviewMouseLeftButtonDown"/>
-                <Button Height="30" Width="30" Content="🔍" Background="Transparent" Foreground="#DD000000" FontSize="14" Padding="0,0,0,0" BorderThickness="0"/>
+                <TextBox x:Name="Search" Width="650" Height="30" Margin="20,0,0,0" FontFamily="Bodoni MT" materialDesign:HintAssist.Hint="Enter weight(g)" FontSize="24" Padding="0,0,0,0" PreviewMouseLeftButtonDown="TextBox_PreviewMouseLeftButtonDown" TextChanged="search"/>
+                <Button Height="30" Width="30" Content="🔍" Background="Transparent" Foreground="#DD000000" FontSize="14" Padding="0,0,0,0" BorderThickness="0" Cursor="Hand"/>
                 <Button Background="#4B752B" Content="Add" Margin="360,0,0,0" BorderBrush="Black" Click="Button_Click"/>
-                <Button Background="#4B752B" Content="Delete" Width="100" Margin="10,0,0,0" BorderBrush="Black"/>
+                <Button Background="#4B752B" Content="Delete" Width="100" Margin="10,0,0,0" BorderBrush="Black" Click="Button_Click_1"/>
             </StackPanel>
             <ListBox BorderThickness="0" Background="Transparent" Margin="20,0,20,0" x:Name="FoodList" ItemTemplate="{StaticResource FoodTempalte}" Height="540"
                 ItemsPanel="{StaticResource test1}" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
@@ -113,10 +114,10 @@
 
 
 
-        <StackPanel x:Name="Page4" Background="#D9F0C7" Height="639" VerticalAlignment="Top" Margin="0,65,0,0" Orientation="Vertical" Visibility="Hidden">
+        <StackPanel x:Name="Page4" Background="#D9F0C7" Height="639" VerticalAlignment="Top" Margin="0,65,0,0" Orientation="Vertical" Visibility="Visible">
             <StackPanel Orientation="Vertical" Height="70" Margin="0,20,0,0">
                 <Label Height="35" Content="Поточна вага" FontSize="24" Width="150" Padding="0,0,0,0"/>
-                <TextBox Height="35" Text="68" FontSize="30"  Width="64" Padding="0,0,0,0" FontFamily="Arial Black"     />
+                <TextBox Name="WeightCheck" Height="35" Text="68" FontSize="30"  Width="64" Padding="0,0,0,0" FontFamily="Arial Black"     />
             </StackPanel>
             <StackPanel Height="80" Margin="0,20,0,0">
                 <StackPanel Orientation="Horizontal" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -130,7 +131,7 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel  Height="419" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Label Content="Marth - 12                         69,1 кг     ⬇  &#xD;&#xA;Marth - 12                         69,1 кг     ⬆ " Width="600" Height="410" Background="White" FontSize="35" Padding="0,0,0,0" BorderBrush="Black" BorderThickness="2"/>
+                <Label Name="StaticHsitory" Content="Marth - 12                         69,1 кг     ⬇  &#xD;&#xA;Marth - 12                         69,1 кг     ⬆ " Width="600" Height="410" Background="White" FontSize="35" Padding="0,0,0,0" BorderBrush="Black" BorderThickness="2"/>
                 <Border  BorderBrush="Black" BorderThickness="2" Width="600" Height="410"  Margin="30,0,0,0">
                     <StackPanel Width="600" Height="410" Margin="0,0,0,0" Background="White" >
                         <Polyline Stroke="Green" StrokeThickness="3" >
