@@ -21,7 +21,7 @@ namespace CallorieCrusher
     /// </summary>
     public partial class SingIn : Window
     {
-        private string connect = @"Data Source = DESKTOP-JA41I9L; Initial Catalog = CalCrush; Trusted_connection=True";
+        private string connect = @"Data Source = USER-PC50; Initial Catalog = CalCrush; Trusted_Connection=True";
         string sqlExpression = "SELECT * FROM Registr";
         private string str = "";
         public SingIn()

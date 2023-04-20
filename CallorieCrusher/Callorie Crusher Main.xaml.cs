@@ -29,7 +29,13 @@ namespace CallorieCrusher
         double ZhirokRes = 0;
         double UglevodRes = 0;
         double WaterRes = 0;
-        public Callorie_Crusher_Main()
+        string eda = "Торт";
+        int ProcBilok = 0;
+        int ProcZhirok = 0;
+        int ProcUglevodi = 0;
+        int ProcWat = 0;
+        string username = "";
+        public Callorie_Crusher_Main(string user)
         {
             InitializeComponent();
             DispatcherTimer timer = new DispatcherTimer();
@@ -37,10 +43,13 @@ namespace CallorieCrusher
             timer.Tick += timer_Tick;
             timer.Start();
             filling();
+            ResultsTable();
             DispatcherTimer timer1 = new DispatcherTimer();
             timer1.Interval = TimeSpan.FromMilliseconds(0.5);
-            timer1.Tick += ResultsTable;
+            timer1.Tick += ResultsTable1;
             timer1.Start();
+            username = user;
+            ResultLabels();
         }
         private void timer_Tick(object sender, EventArgs e)
         {
@@ -50,6 +59,7 @@ namespace CallorieCrusher
         private void TextBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Search.Clear();
+            
         }
         private void osnova_Click(object sender, RoutedEventArgs e)
         {
@@ -108,7 +118,7 @@ namespace CallorieCrusher
         private async void filling()
         {
             Foods = new ObservableCollection<FoodClass>();
-            string connectionString = @"Data Source = DESKTOP-JA41I9L; Initial Catalog = CalCrush; Trusted_Connection=True";
+            string connectionString = @"Data Source = USER-PC50; Initial Catalog = CalCrush; Trusted_Connection=True";
             string catall = "SELECT * FROM Food";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -146,102 +156,140 @@ namespace CallorieCrusher
             }
 
         }
-        void ResultsTable(object sender, EventArgs e)
+        void ResultsTable()
         {
 
-            //string connect = @"Data Source = HOME-PC; Initial Catalog = CalCrush; Trusted_connection=True";
-            //string sqlExpression = "SELECT * FROM Registr";
-            //WindowAddFood addFood = new WindowAddFood();
-            //using (SqlConnection connection = new SqlConnection(connect))
-            //{
+            string connectionString = @"Data Source = USER-PC50; Initial Catalog = CalCrush; Trusted_Connection=True";
+            string catall = "SELECT * FROM Food";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
 
-            //    try
-            //    {
-            //        connection.Open();
-            //        SqlCommand command = new SqlCommand(sqlExpression, connection);
-            //        SqlDataReader reader = command.ExecuteReader();
-
-            //        if (reader.HasRows)
-            //        {
-            //            while (reader.Read())
-            //            {
-            //                object nik = reader.GetValue(1);
-            //                if (addFood.NameEda.Text.ToString() != "")
-            //                {
-            //                    if (addFood.NameEda.Text.ToLower() == nik.ToString().ToLower())
-            //                    {
-            //                        BilokRes += Convert.ToDouble(reader.GetValue(5));
-            //                        ZhirokRes += Convert.ToDouble(reader.GetValue(6));
-            //                        UglevodRes += Convert.ToDouble(reader.GetValue(7));
-            //                        WaterRes += Convert.ToDouble(reader.GetValue(9));
-            //                        nProtein.Content = $"{(BilokRes * 100) / 52}";
-            //                        nFat.Content = $"{(BilokRes * 100) / 55}";
-            //                        nCarb.Content = $"{(BilokRes * 100) / 97}";
-            //                        nWat.Content = $"{(WaterRes * 100) /2.4}";
-            //                    }
-            //                }
-            //            }
-            //        }
-            //    }
-            //    catch (Exception i) { MessageBox.Show(i.Message); };
-            //}
+                SqlCommand command = new SqlCommand(catall, connection);
+                SqlDataReader reader = command.ExecuteReader();
 
 
-            //ResAll = BilokRes + ZhirokRes + UglevodRes + WaterRes;
-            //nProtein.Content = $"{Convert.ToInt32((BilokRes * 100) / ResAll)} %";
+                if (reader.HasRows)
+                {
 
-            if (TableProt.Height <= Convert.ToInt32((529 * 90) / 100))
+                    while (reader.Read())
+                    {
+                        object nik = reader.GetValue(1);
+                        if (eda.ToLower() == nik.ToString().ToLower())
+                        {
+                            BilokRes += Convert.ToDouble(reader.GetValue(5));
+                            ZhirokRes += Convert.ToDouble(reader.GetValue(6));
+                            UglevodRes += Convert.ToDouble(reader.GetValue(7));
+                            WaterRes += Convert.ToDouble(reader.GetValue(8));
+                            ProcBilok = Convert.ToInt32((BilokRes * 100) / 52);
+                            ProcZhirok = Convert.ToInt32((ZhirokRes * 100) / 55);
+                            ProcUglevodi = Convert.ToInt32((UglevodRes * 100) / 97);
+                            ProcWat = Convert.ToInt32((WaterRes * 100) / 2.4);
+                            nProtein.Content = $"{ProcBilok} %";
+                            nFat.Content = $"{ProcZhirok} %";
+                            nCarb.Content = $"{ProcUglevodi} %";
+                            nWat.Content = $"{ProcWat} %";
+                            eda = "";
+                        }
+                    }
+                    reader.Close();
+                }
+            }
+        }
+        void ResultLabels()
+        {
+            float maxprot = 0;
+            float maxfat = 0;
+            float maxcarb = 0;
+            float maxwater = 2.5F;
+            string sqlExpression = "SELECT * FROM Registr";
+            string connect = @"Data Source = USER-PC50; Initial Catalog = CalCrush; Trusted_Connection=True";
+            using (SqlConnection connection = new SqlConnection(connect))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sqlExpression, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            object nik = reader.GetValue(1);
+                            object lovelyweight = reader.GetValue(7);
+                            if(nik.ToString() == username)
+                            {                             
+                                maxprot = float.Parse(lovelyweight.ToString()) * 1.5F;
+                                maxfat = float.Parse(lovelyweight.ToString()) * 0.8F;
+                                maxcarb = float.Parse(lovelyweight.ToString()) * 2;
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex) { }
+            }
+            protlbl.Content = $"{Convert.ToInt32(ProcBilok / 100.0 * maxprot)}g/{maxprot}g";
+            fatlbl.Content = $"{Convert.ToInt32(ProcZhirok / 100.0 * maxfat)}g/{maxfat}g";
+            carblbl.Content = $"{Convert.ToInt32(ProcUglevodi / 100.0 * maxcarb)}g/{maxcarb}g";
+            waterlbl.Content = $"{Convert.ToInt32(ProcWat / 100.0 * maxwater)}L/{maxwater}L";
+        }
+        void ResultsTable1(object sender, EventArgs e)
+        {
+            if (TableProt.Height <= Convert.ToInt32((529 * ProcBilok) / 100))
             {
                 TableProt.Height += 1;
-                if (TableProt.Height>=0&& TableProt.Height<=176)
+                if (ProcBilok >= 0 && ProcBilok <= 33 || ProcBilok > 100)
                 {
-                    TableProt.Background= new SolidColorBrush(Colors.Red);
+                    TableProt.Background = new SolidColorBrush(Colors.Red);
                 }
-                else if (TableProt.Height >= 176 && TableProt.Height <= 352)
+                else if (ProcBilok >= 33 && ProcBilok <= 66)
                 {
                     TableProt.Background = new SolidColorBrush(Colors.Yellow);
                 }
-                else if (TableProt.Height >= 352 && TableProt.Height <= 529)
+                else if (ProcBilok >= 66 && ProcBilok <= 100)
                 {
                     TableProt.Background = new SolidColorBrush(Colors.Green);
                 }
             }
-            if (TableFat.Height <= Convert.ToInt32((529 * 30) / 100))
+            if (TableFat.Height <= Convert.ToInt32((529 * ProcZhirok) / 100))
             {
                 TableFat.Height += 1;
-                if (TableFat.Height >= 0 && TableFat.Height <= 176)
+                if (ProcZhirok >= 0 && ProcZhirok <= 33 || ProcZhirok > 100)
                 {
                     TableFat.Background = new SolidColorBrush(Colors.Red);
                 }
-                else if (TableFat.Height >= 176 && TableFat.Height <= 352)
+                else if (ProcZhirok >= 33 && ProcZhirok <= 66)
                 {
                     TableFat.Background = new SolidColorBrush(Colors.Yellow);
                 }
-                else if (TableFat.Height >= 352 && TableFat.Height <= 529)
+                else if (ProcZhirok >= 66 && ProcZhirok <= 100)
                 {
                     TableFat.Background = new SolidColorBrush(Colors.Green);
                 }
             }
-            if (TableCarb.Height <= Convert.ToInt32((529 * 10) / 100))
+            if (TableCarb.Height <= Convert.ToInt32((529 * ProcUglevodi) / 100))
             {
                 TableCarb.Height += 1;
-                if (TableCarb.Height >= 0 && TableCarb.Height <= 176)
+                if (ProcUglevodi >= 0 && ProcUglevodi <= 33 || ProcUglevodi > 100)
                 {
                     TableCarb.Background = new SolidColorBrush(Colors.Red);
                 }
-                else if (TableCarb.Height >= 176 && TableCarb.Height <= 352)
+                else if (ProcUglevodi >= 33 && ProcUglevodi <= 66)
                 {
                     TableCarb.Background = new SolidColorBrush(Colors.Yellow);
                 }
-                else if (TableCarb.Height >= 352 && TableCarb.Height <= 529)
+                else if (ProcUglevodi >= 66 && ProcUglevodi <= 100)
                 {
                     TableCarb.Background = new SolidColorBrush(Colors.Green);
                 }
             }
-            if (TableWat.Height <= Convert.ToInt32((529 * 60) / 100))
+            if (TableWat.Height <= Convert.ToInt32((529 * ProcWat) / 100))
             {
                 TableWat.Height += 1;
             }
+
+            ResultLabels();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -22,7 +22,7 @@ namespace CallorieCrusher
     /// </summary>
     public partial class DBFood : Window
     {
-        private string connect = @"Data Source = DESKTOP-JA41I9L; Initial Catalog = CalCrush; Trusted_connection=True";
+        private string connect = @"Data Source = USER-PC50; Initial Catalog = CalCrush; Trusted_Connection=True";
         public DBFood()
         {
             InitializeComponent();
