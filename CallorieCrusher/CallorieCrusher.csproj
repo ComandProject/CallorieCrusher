@@ -82,6 +82,7 @@
     <Compile Include="Callorie Crusher Main.xaml.cs">
       <DependentUpon>Callorie Crusher Main.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Cjntainer.cs" />
     <Compile Include="DBFood.xaml.cs">
       <DependentUpon>DBFood.xaml</DependentUpon>
     </Compile>

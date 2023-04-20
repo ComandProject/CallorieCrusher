@@ -7,42 +7,43 @@
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="WindowAddFood" Height="450" Width="900" Background="#D9F0C7" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+        Title="WindowAddFood" Height="420" Width="680" Background="#D9F0C7" ScrollViewer.VerticalScrollBarVisibility="Disabled">
     <Grid>
-        <ComboBox x:Name="NumberFoodCombo" Background="AliceBlue" Height="25" Width="126" HorizontalAlignment="Left" VerticalAlignment="Top" materialDesign:HintAssist.Hint="First food" Margin="10,10,0,0">
-            <Label Content="First food"></Label>
-            <Label Content="Second food"></Label>
-            <Label Content="Dessert"></Label>
-            <Label Content="Drinks"></Label>
-        </ComboBox>
-        <ComboBox Name="NameFoodCombo" Background="AliceBlue" Height="25" Width="126" HorizontalAlignment="Left" VerticalAlignment="Top" materialDesign:HintAssist.Hint="" Margin="167,10,0,0">
-
-        </ComboBox>
-        <ComboBox Background="AliceBlue" x:Name="TimeEdaCombo" Height="26" Width="126" HorizontalAlignment="Left" VerticalAlignment="Top" materialDesign:HintAssist.Hint="Choice time" Margin="342,10,0,0">
-            <Label Content="Breakfast (6:00-9:00)"></Label>
-            <Label Content="Late Breakfast (9:00-12:00)"></Label>
-            <Label Content="Lunch (12:00-14:00)"></Label>
-            <Label Content="Dinner (14:00-16:00)"></Label>
-            <Label Content="Supper (18:00-21:00)"></Label>
-            <Label Content="Late Supper (21:00-23:00)"></Label>
-            <Label Content="Uber Late Supper (00:24)"></Label>
-        </ComboBox>
-        <Image x:Name="ImagesEda" HorizontalAlignment="Left" Height="259" Margin="10,163,0,0" VerticalAlignment="Top" Width="356" Source="/фон2.jpg"></Image>
-        <Label x:Name="CaloriesLabel" BorderThickness="1" BorderBrush="Black" Background="AliceBlue" Content="CALORIES: " HorizontalAlignment="Left" Margin="508,10,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="WaterLabel" BorderThickness="1" BorderBrush="Black" Background="AliceBlue" Content="WATER: " HorizontalAlignment="Left" Margin="671,10,0,0" VerticalAlignment="Top" Width="119"/>
-        <Button x:Name="AddFoodButton" Background="#4B752B" BorderBrush="Black" Content="ADD" HorizontalAlignment="Left" Margin="600,328,0,0" VerticalAlignment="Top" Height="72" Width="73" Click="AddFoodButton_Click"/>
-        <Label x:Name="TotalCalLabel" BorderThickness="1" BorderBrush="Black" Background="AliceBlue" Content="Total calories: " HorizontalAlignment="Left" Margin="404,328,0,0" VerticalAlignment="Top" Width="164"/>
-        <Label x:Name="AllowCalLabel" BorderThickness="1" BorderBrush="Black" Background="AliceBlue" Content="Allowable calories: " HorizontalAlignment="Left" Margin="405,374,0,0" VerticalAlignment="Top" Width="163"/>
-        <Label x:Name="OpisEdaLabel" BorderThickness="1" BorderBrush="Black" Background="AliceBlue" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="356" Height="81" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Top">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <materialDesign:RatingBar HorizontalAlignment="Left" Margin="568,163,0,0" VerticalAlignment="Top" Height="27" Width="123"/>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                <ComboBox Name="combo1" FontSize="18" Foreground="#4B752B" FontFamily="Bodoni MT" materialDesign:HintAssist.Hint="Choice one..." Margin="10,10,0,0" Width="150" SelectionChanged="Combo1select">
+                    <Label FontSize="14" Foreground="#4B752B" FontFamily="Bodoni MT" Content="First Dishes"></Label>
+                    <Label FontSize="14" Foreground="#4B752B" FontFamily="Bodoni MT" Content="Second Dishes"></Label>
+                    <Label FontSize="14" Foreground="#4B752B" FontFamily="Bodoni MT" Content="Drinks"></Label>
+                    <Label FontSize="14" Foreground="#4B752B" FontFamily="Bodoni MT" Content="Desserts"></Label>
+                </ComboBox>
+                <ComboBox Name="combo2" IsEnabled="False" FontSize="18" Foreground="#4B752B" FontFamily="Bodoni MT" materialDesign:HintAssist.Hint="Choice dish..." Margin="10,10,0,0" Width="150" SelectionChanged="combo2selected"></ComboBox>
+                <ComboBox Name="timecombo" FontSize="18" Foreground="#4B752B" FontFamily="Bodoni MT" materialDesign:HintAssist.Hint="Choice time..." Margin="10,10,0,0" Width="150">
+                    <Label FontSize="14" Foreground="#4B752B" FontFamily="Bodoni MT" Content="Breakfast(6:00-9:00)"></Label>
+                    <Label FontSize="14" Foreground="#4B752B" FontFamily="Bodoni MT" Content="Late breakfast(9:00-12:00)"></Label>
+                    <Label FontSize="14" Foreground="#4B752B" FontFamily="Bodoni MT" Content="Lunch(12:00-13:00)"></Label>
+                    <Label FontSize="14" Foreground="#4B752B" FontFamily="Bodoni MT" Content="Dinner(13:00-16:00)"></Label>
+                    <Label FontSize="14" Foreground="#4B752B" FontFamily="Bodoni MT" Content="Late dinner(16:00-18:00)"></Label>
+                    <Label FontSize="14" Foreground="#4B752B" FontFamily="Bodoni MT" Content="Evening(18:00-21:00)"></Label>
+                    <Label FontSize="14" Foreground="#4B752B" FontFamily="Bodoni MT" Content="Midnight(21:00-6:00)"></Label>
+                </ComboBox>
+                <TextBox Name="weightlbl" FontSize="18" Foreground="#4B752B" FontFamily="Bodoni MT" materialDesign:HintAssist.Hint="Enter weight(g)" Margin="10,10,0,0" Width="150" TextChanged="weightchanged"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Border BorderBrush="#4B752B" BorderThickness="2" HorizontalAlignment="Left" Margin="10,20,0,0" Width="300" Height="250">
+                    <TextBlock Name="desc" IsEnabled="False" FontSize="18" Foreground="#4B752B" FontFamily="Bodoni MT" materialDesign:HintAssist.Hint="Description..." Width="300" Height="250" Background="White" HorizontalAlignment="Left"></TextBlock>
+                </Border>
+                <StackPanel>
+                    <Label Name="protlbl" Margin="10,10,0,0" Content="" FontSize="25" Foreground="#4B752B" FontFamily="Bodoni MT" Width="350" HorizontalAlignment="Left"></Label>
+                    <Label Name="fatlbl" Margin="10,10,0,0" Content="" FontSize="25" Foreground="#4B752B" FontFamily="Bodoni MT" Width="350" HorizontalAlignment="Left"></Label>
+                    <Label Name="carblbl" Margin="10,10,0,0" Content="" FontSize="25" Foreground="#4B752B" FontFamily="Bodoni MT" Width="350" HorizontalAlignment="Left"></Label>
+                    <Label Name="waterlbl" Margin="10,10,0,0" Content="" FontSize="25" Foreground="#4B752B" FontFamily="Bodoni MT" Width="350" HorizontalAlignment="Left"></Label>
+                </StackPanel>                
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Name="addbutton" Background="#4B752B" FontSize="22" FontFamily="Bodoni MT" BorderBrush="Black" Width="200" Content="Add" Margin="100,20,0,0" Click="AddClick"></Button>
+                <Button Name="cancelbutton" BorderBrush="Black" Background="#FF750000" FontSize="22" FontFamily="Bodoni MT" Content="Cancel" Width="200" Margin="90,20,0,0" Cursor="Hand" Click="cancelclick"></Button>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

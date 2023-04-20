@@ -39,7 +39,7 @@
     <Grid>
         
         <StackPanel Orientation="Horizontal" Height="60" VerticalAlignment="Top" Background="White">
-            <Button BorderThickness="2" Height="45" Content="Main" FontSize="32" Foreground="White" Background="#4B752B" FontFamily="Bodoni MT" x:Name="osnova" Width="150" Margin="15,5,0,5" Click="osnova_Click" BorderBrush="Black"/>
+            <Button BorderThickness="2" Height="45" Content="Main" FontSize="32" Foreground="White" Background="#4B752B" FontFamily="Bodoni MT" x:Name="osnova" Width="150" Margin="15,5,0,5" Click="osnova_Click" BorderBrush="Black" Cursor="Hand"/>
             <Button BorderThickness="2" Height="45" Content="Food" FontSize="32" Foreground="White" Background="#4B752B" FontFamily="Bodoni MT" x:Name="food" Width="150" Margin="15,5,0,5" Click="food_Click" BorderBrush="Black"/>
             <Button BorderThickness="2" Height="45" Content="Calendar" FontSize="32" Foreground="White" Background="#4B752B" FontFamily="Bodoni MT" x:Name="calendar" Width="150" Margin="15,5,0,5" Click="calendar_Click" BorderBrush="Black"/>
             <Button BorderThickness="2" Height="45" Content="Stats" FontSize="32" Foreground="White" Background="#4B752B" FontFamily="Bodoni MT" x:Name="stats" Width="150" Margin="15,5,0,5" Click="stats_Click" BorderBrush="Black"/>
@@ -73,8 +73,8 @@
             </StackPanel>
             <StackPanel Orientation="Vertical" Width="620" Height="530" Margin="13,0,0,0">
                 <Label Content="Meats today:" FontSize="18" Background="White"/>
-                <ListBox Height="400" FontSize="18" BorderBrush="White" Background="White"/>
-                <Button x:Name="addFood" Height="90" Background="#FF3AB742" Width="618" BorderThickness="2" BorderBrush="Black" Content="EDA.pp 🍽 🍔 🍤 🍨 🍩 🍻" FontSize="40" Foreground="#FF042B11" Click="addFood_Click"/>
+                <ListBox Name="Meats" Height="400" FontSize="18" BorderBrush="White" Background="White"/>
+                <Button x:Name="addFood" Height="90" Background="#FF3AB742" Width="618" BorderThickness="2" BorderBrush="Black" Content="EDA.pp 🍽 🍔 🍤 🍨 🍩 🍻" FontSize="40" Foreground="#FF042B11" Click="addFood_Click" Cursor="Hand"/>
             </StackPanel>
             <Button Width="100" Height="30" Margin="-100,570,0,0" Background="#FF750000" BorderBrush="red" Content="EXIT" Foreground="WHITE" Cursor="Hand"/>
         </StackPanel>

@@ -29,7 +29,7 @@ namespace CallorieCrusher
         double ZhirokRes = 0;
         double UglevodRes = 0;
         double WaterRes = 0;
-        string eda = "Торт";
+        string eda = "";
         int ProcBilok = 0;
         int ProcZhirok = 0;
         int ProcUglevodi = 0;
@@ -98,6 +98,19 @@ namespace CallorieCrusher
         {
             WindowAddFood windowAddFood = new WindowAddFood();
             windowAddFood.ShowDialog();
+            if (Cjntainer.name == "")
+                return;
+            Meats.Items.Add($"{Cjntainer.time}:{Cjntainer.name}({Cjntainer.weight}g)");
+            eda = Cjntainer.name;
+            Cjntainer.time = "";
+            Cjntainer.name = "";
+            Cjntainer.weight = "";
+            ResultsTable();
+            DispatcherTimer timer1 = new DispatcherTimer();
+            timer1.Interval = TimeSpan.FromMilliseconds(0.5);
+            timer1.Tick += ResultsTable1;
+            timer1.Start();
+            ResultLabels();
         }
     
 
